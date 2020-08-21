@@ -31,5 +31,10 @@ The back-end system shall use Hibernate to connect to an AWS RDS Postgres databa
 * Users can upload a document or image of their receipt when submitting reimbursements which can stored in the database and reviewed by a financial manager.
 * Application shall be hosted remotely on an EC2.
 * Static files (webpages) shall be hosted on an S3 bucket. 
-* Personal Goals: Customized 404 page like this one: https://www.yeahhub.com/set-custom-error-page-apache-tomcat-server/, or this one: https://guysgab.com/wp-content/uploads/2013/12/404-error-page-github.jpg, https://goodyfeed.com/wp-content/uploads/2015/09/error404.jpg)
-* Personal Goals: Customized DNE page like this one: https://eric.sau.pe/wp-content/uploads/2013/12/2_creative_404_pages_by_theollybanks-d3gmv9v.png
+
+**Personal Goals:** 
+* Customized DNE page like this one: https://eric.sau.pe/wp-content/uploads/2013/12/2_creative_404_pages_by_theollybanks-d3gmv9v.png
+* Customized 404 page like this one: https://www.yeahhub.com/set-custom-error-page-apache-tomcat-server/
+  * or this one: https://guysgab.com/wp-content/uploads/2013/12/404-error-page-github.jpg
+  * or this one: https://goodyfeed.com/wp-content/uploads/2015/09/error404.jpg)
+
