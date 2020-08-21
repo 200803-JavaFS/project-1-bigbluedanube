@@ -37,4 +37,5 @@ The back-end system shall use Hibernate to connect to an AWS RDS Postgres databa
 * Customized 404 page like this one: https://www.yeahhub.com/set-custom-error-page-apache-tomcat-server/
   * or this one: https://guysgab.com/wp-content/uploads/2013/12/404-error-page-github.jpg
   * or this one: https://goodyfeed.com/wp-content/uploads/2015/09/error404.jpg)
+  * or this one: https://medium.com/designer-recipes/how-to-make-a-custom-404-error-page-for-your-website-1af37a8b20d1
 
