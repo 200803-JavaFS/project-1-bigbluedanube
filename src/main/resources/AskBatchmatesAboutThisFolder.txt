@@ -1,3 +1,5 @@
 
 
 Ask your batch-mates what is supposed to go into the Resources Folder. This folder is empty in Tim's Demo.
+
+I have included the log4j.properties file in this folder, but perhaps other things should go here, too?
