@@ -37,8 +37,5 @@
 		<!-- So... you might not actually need this... OR your User.hbm.xml file... WHOOPS. Just don't make anymore, 'k? I deleted the separate file, but I'll keep the tag.
 		<mapping resource="User.hbm.xml" />
 		-->
-
 	</session-factory>
-
-
 </hibernate-configuration>
