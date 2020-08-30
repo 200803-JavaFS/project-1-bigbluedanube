@@ -1,0 +1,27 @@
+
+* {
+  text-align: left;
+  padding: 5px;
+  font-weight: 400;
+  font-size: 20px;
+  }
+
+
+/*
+This is stuff I 'borrowed' from my grad assistantship, specifically the NIME 2018 website. It's GORGEOUS, and I wanna make something half as nice once day.
+*/
+
+  /* latin */
+  /* @font-face {
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Work Sans Bold'), local('WorkSans-Bold'), url(https://fonts.gstatic.com/s/WorkSans/v9/o-0NIpQlx3QUlC5A4PNjXhFVZNyBx2pqPA.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  } */
+  
+  /* #container {
+	display: block;
+	background: linear-gradient(45deg, #000000, #1100ffc0);
+	opacity: 0.85;
+} */
