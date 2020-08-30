@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<!-- JDBC config, aka all the stuff we used to do in those files in 10 
+			lines of code. -->
+		<property name="hibernate.connection.username">postgres</property>
+		<property name="hibernate.connection.password">thisisapassword</property>
+		<property name="hibernate.connection.url">jdbc:postgresql://javafs200803.cse2tjd1dwvc.us-east-2.rds.amazonaws.com:5432/projectone</property>
+		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+		<!-- Additional Hibernate Properties -->
+		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+		<!-- These will print the SQL queries Hibernate makes to the console. Like 
+			System.out.println() -->
+		<property name="hibernate.default_schema">ers_users</property>
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.format_sql">true</property>
+		<property name="hibernate.hbm2ddl.auto">create</property>
+		<!-- hibernate.hbm2.ddl is in "create" mode/Has the CREATE Property, so 
+			tables will DROP then be re-DREATEd. There's also a "validate" mode/It has 
+			a VALIDATE Property, which just makes sure everything matches the DB. Use 
+			this one once you've got the DB you want. -->
+		<!-- this is stuff we typically do not include when we're making things 
+			for clients. They do not need to see (what prints to) the console. -->
+
+
+		<!-- Here are our Mappings -->
+		<mapping class="com.revature.models.User" />
+		<mapping class="com.revature.models.UserRoles" />
+		<mapping class="com.revature.models.Reimbursement" />
+		<mapping class="com.revature.models.ReimbursementStatus" />
+		<mapping class="com.revature.models.ReimbursementType" />
+		
+		<!-- So... you might not actually need this... OR your User.hbm.xml file... WHOOPS. Just don't make anymore, 'k? I deleted the separate file, but I'll keep the tag.
+		<mapping resource="User.hbm.xml" />
+		-->
+	</session-factory>
+</hibernate-configuration>
