@@ -57,9 +57,6 @@ public class MasterServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		doGet(req, res);
-		
-
-		
 	}
 
 }

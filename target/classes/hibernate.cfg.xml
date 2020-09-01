@@ -15,16 +15,16 @@
 		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
 		<!-- These will print the SQL queries Hibernate makes to the console. Like 
 			System.out.println() -->
+		<!-- this is stuff we typically do not include when we're making things 
+			for clients. They do not need to see (what prints to) the console. -->
 		<property name="hibernate.default_schema">ers_users</property>
 		<property name="hibernate.show_sql">true</property>
 		<property name="hibernate.format_sql">true</property>
 		<property name="hibernate.hbm2ddl.auto">create</property>
 		<!-- hibernate.hbm2.ddl is in "create" mode/Has the CREATE Property, so 
-			tables will DROP then be re-DREATEd. There's also a "validate" mode/It has 
+			tables will DROP then be re-CREATEd. There's also a "validate" mode/It has 
 			a VALIDATE Property, which just makes sure everything matches the DB. Use 
 			this one once you've got the DB you want. -->
-		<!-- this is stuff we typically do not include when we're making things 
-			for clients. They do not need to see (what prints to) the console. -->
 
 
 		<!-- Here are our Mappings -->
@@ -33,9 +33,10 @@
 		<mapping class="com.revature.models.Reimbursement" />
 		<mapping class="com.revature.models.ReimbursementStatus" />
 		<mapping class="com.revature.models.ReimbursementType" />
-		
-		<!-- So... you might not actually need this... OR your User.hbm.xml file... WHOOPS. Just don't make anymore, 'k? I deleted the separate file, but I'll keep the tag.
-		<mapping resource="User.hbm.xml" />
-		-->
+
+		<!-- This tag is for separate Hibernate Mapping files for each class. 
+		We don't need this because we've mapped everything here and added annotations
+		in our classes, but if that didn't happen, we would use this file instead.
+		<mapping resource="User.hbm.xml" /> -->
 	</session-factory>
 </hibernate-configuration>
