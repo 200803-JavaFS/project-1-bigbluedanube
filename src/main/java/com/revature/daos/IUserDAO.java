@@ -14,6 +14,6 @@ public interface IUserDAO {
 	
 	public boolean updateUser(User u); 
 	
-	public boolean deleteUser(int supId);
+	public boolean deleteUser(int userId);
 
 }

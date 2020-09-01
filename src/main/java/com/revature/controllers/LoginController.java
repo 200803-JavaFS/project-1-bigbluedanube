@@ -94,7 +94,7 @@ public class LoginController {
 			res.getWriter().println("l.username" + " has logged out successfully.");
 		} else {
 			res.setStatus(400); // "Bad Request", which is a type of Client-Side Error.
-			res.getWriter().println("You muse be logged into logout.");
+			res.getWriter().println("You muse be logged in to logout.");
 		}
 	}
 

@@ -4,16 +4,11 @@ import java.util.List;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 
-import com.revature.daos.IReimbursementDAO;
-import com.revature.models.Reimbursement;
 import com.revature.models.User;
 import com.revature.utils.HibernateUtil;
 
 public class UserDAO implements IUserDAO {
-
-	private IReimbursementDAO rDao = new ReimbursementDAO();
 
 	@Override
 	public List<User> findAll() {
@@ -35,7 +30,7 @@ public class UserDAO implements IUserDAO {
 	public boolean addUser(User u) {
 		Session ses = HibernateUtil.getSession();
 		try {
-			ses.save(u);
+			ses.save(u);		// This is a Hibernate Session (Insert) Method. A new session begins and the save() method returns a serializable object that represents what was saved.
 			return true;	
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -48,7 +43,7 @@ public class UserDAO implements IUserDAO {
 		Session ses = HibernateUtil.getSession();
 		
 		try {
-			ses.merge(u);
+			ses.merge(u);		// This is a Hibernate Session (Update) Method. it merges with the object in the cache (if it exists), then updates the DB. Safer than update().
 			return true;
 		} catch (HibernateException e) {
 			e.printStackTrace();
@@ -68,5 +63,4 @@ public class UserDAO implements IUserDAO {
 			return false;
 		}	
 	}
-
 }

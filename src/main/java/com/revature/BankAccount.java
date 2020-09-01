@@ -1,5 +1,7 @@
 package com.revature;
 
+/*
+
 import java.util.Scanner;   // we need this to process user inputs
 
 public class BankAccount {
@@ -71,6 +73,7 @@ public class BankAccount {
 	}
 
 }
+*/
 
 // TO-DO - make a customer, employee, and admin classes with different privileges... use inheritance?
 // public class Customer, protected class Employee, and default or private class Admin???

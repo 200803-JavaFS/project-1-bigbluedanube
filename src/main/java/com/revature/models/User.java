@@ -90,9 +90,6 @@ public class User implements Serializable {
 	}
 	
 
-
-	
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -150,6 +147,7 @@ public class User implements Serializable {
 			return false;
 		return true;
 	}
+	
 	
 
 	public int getUserId() {
