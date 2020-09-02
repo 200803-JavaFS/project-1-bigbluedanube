@@ -20,7 +20,7 @@
 		<property name="hibernate.default_schema">ers_users</property>
 		<property name="hibernate.show_sql">true</property>
 		<property name="hibernate.format_sql">true</property>
-		<property name="hibernate.hbm2ddl.auto">create</property>
+		<property name="hibernate.hbm2ddl.auto">update</property>
 		<!-- hibernate.hbm2.ddl is in "create" mode/Has the CREATE Property, so 
 			tables will DROP then be re-CREATEd. There's also a "validate" mode/It has 
 			a VALIDATE Property, which just makes sure everything matches the DB. Use 

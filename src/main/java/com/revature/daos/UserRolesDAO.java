@@ -19,11 +19,10 @@ public class UserRolesDAO implements IUserRolesDAO {
 	}
 	
 	@Override
-	public UserRoles findById(int id) {
+	public UserRoles findById(int id) {	
 		Session ses = HibernateUtil.getSession();
 		
-		UserRoles urs = ses.get(UserRoles.class, id);
-		return urs;
+		return ses.get(UserRoles.class, id);
 	}
 	
 	@Override

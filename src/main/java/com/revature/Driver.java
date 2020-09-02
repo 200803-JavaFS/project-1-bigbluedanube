@@ -16,6 +16,7 @@ public class Driver {
 	
 	public static IUserDAO uDao = new UserDAO();
 	public static IReimbursementDAO rDao = new ReimbursementDAO();
+	public static IUserRolesDAO ursDao = new UserRolesDAO();
 	
 	private static final Logger log = LogManager.getLogger(Driver.class);
 	
@@ -30,17 +31,17 @@ public class Driver {
 	}
 
 	private static void InsertValues() throws NoSuchAlgorithmException {	// Jane Huang's influence comes in here.
-		UserRoles role0 = new UserRoles("Employee");			
-		UserRoles role1 = new UserRoles("Financial Manager");
+		UserRoles role1 = ursDao.findById(1);			
+		UserRoles role2 = ursDao.findById(2);
 		
-		User user1 = new User("IronBank4895", "wewillgetourdue", "Tycho", "Nestoris", "tycho.nestoris@ironbank.co.braavos", role0);
-		User user2 = new User("StannisTheMannis", "fewerNeverMind", "Stannis", "Baratheon", "stannisthemannis@dragonstone.gov", role0);
-		User user3 = new User("KingBobbyB", "killedbyaboar", "Robert", "Baratheon", "kingbobbyb@westeros.gov", role1);	// Members of the Royal Family get a Westeros.gov email.
-		User user4 = new User("JustKeepRowin", "blacksmith", "Gendry", "Hill", "justkeeprowin@stormsend.gov", role1);	// and each holdfast has a government website.
+		User user1 = new User("IronBank4895", "wewillgetourdue", "Tycho", "Nestoris", "tycho.nestoris@ironbank.co.braavos", role1);
+		User user2 = new User("StannisTheMannis", "fewerNeverMind", "Stannis", "Baratheon", "stannisthemannis@dragonstone.gov", role1);
+		User user3 = new User("KingBobbyB", "killedbyaboar", "Robert", "Baratheon", "kingbobbyb@westeros.gov", role2);	// Members of the Royal Family get a Westeros.gov email.
+		User user4 = new User("JustKeepRowin", "blacksmith", "Gendry", "Hill", "justkeeprowin@stormsend.gov", role2);	// and each holdfast has a government website.
 		User user5 = new User("IAmNoOne", "facelessman", "Arya", "Stark", "iamnoone@blackandwhite.org", role1);			// I have decided that since The Faceless Men are technically a religious organization, they qualify for tax-exempt status.
 		uDao.addUser(user1);
 		uDao.addUser(user2);
-		uDao.addUser(user3);	
+		uDao.addUser(user3);
 		uDao.addUser(user4);
 		uDao.addUser(user5);
 

@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 
 @Entity
@@ -17,6 +18,7 @@ public class UserRoles implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="ers_user_role_id")
+//	@JoinColumn(name="ers_user_role_id", referencedColumnName="user_role_id_fk")
 	private int userRoleId;
 	
 	@Column(name="user_role", nullable=false)

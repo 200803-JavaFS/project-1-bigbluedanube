@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="ers_reimbursement_type")
-public class ReimbType implements Serializable {
+public class ReimbursementType implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -24,19 +24,19 @@ public class ReimbType implements Serializable {
 	private String reimbType;
 	
 	
-	public ReimbType(int reimbTypeId, String reimbType) {
+	public ReimbursementType(int reimbTypeId, String reimbType) {
 		super();
 		this.reimbTypeId = reimbTypeId;
 		this.reimbType = reimbType;
 	}
 
 	
-	public ReimbType() {
+	public ReimbursementType() {
 		super();
 	}
 
 	
-	public ReimbType(String reimbType) {
+	public ReimbursementType(String reimbType) {
 		super();
 		this.reimbType = reimbType;
 	}
@@ -66,7 +66,7 @@ public class ReimbType implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		ReimbType other = (ReimbType) obj;
+		ReimbursementType other = (ReimbursementType) obj;
 		if (reimbType == null) {
 			if (other.reimbType != null)
 				return false;

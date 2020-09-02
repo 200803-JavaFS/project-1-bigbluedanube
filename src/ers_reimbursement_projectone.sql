@@ -4,18 +4,18 @@
 --"TABLE users already exists".
 --This is also a good way to hedge against destroying everything if someone runs the entire script at once.
 
-DROP TABLE ers_user_roles CASCADE;
-DROP TABLE ers_reimbursement_type CASCADE;
-DROP TABLE ers_reimbursement_status CASCADE;
-DROP TABLE ers_users CASCADE;
-DROP TABLE ers_reimbursement CASCADE;
+DROP TABLE IF exists ers_user_roles CASCADE;
+DROP TABLE IF exists ers_reimbursement_type CASCADE;
+DROP TABLE IF exists ers_reimbursement_status CASCADE;
+DROP TABLE IF exists ers_users CASCADE;
+DROP TABLE IF exists ers_reimbursement CASCADE;
 
-
+--The shortcut for 'Refresh' is F5.
 
 --TABLE 1/5
 CREATE TABLE ers_user_roles(
 	ers_user_role_id SERIAL PRIMARY KEY,		--See? It's easier to distinguish between these two columns. Having them both begin with the same word is a bunch of errors waiting to happen.
-	user_role VARCHAR(10) NOT NULL
+	user_role VARCHAR(50) NOT NULL
 );
 
 --TABLE 2/5
@@ -52,7 +52,7 @@ CREATE TABLE ers_reimbursement(
 	reimb_resolved TIMESTAMP,					--This can be NULL because the reimbursement may not have been resolved yet.
 	reimb_description VARCHAR(250),				--User does not have to enter a description, but if they do, it must have fewer than 250 characters.
 	reimb_receipt BYTEA,						--This is a BLOB in our dialect of SQL. Its implementation is a stretch goal, so I'll allow it to be NULL.
-	reimb_author INTEGER REFERENCES ers_users(ers_users_id) NOT NULL,							--Both the Reimbursement Author and the Resolver must be Users, so they reference the same Primary Key.
+	reimb_author_fk INTEGER REFERENCES ers_users(ers_users_id) NOT NULL,							--Both the Reimbursement Author and the Resolver must be Users, so they reference the same Primary Key.
 	reimb_resolver_fk INTEGER REFERENCES ers_users(ers_users_id) NOT NULL,						--The reimbursement may not have been resolved yet, so it's allowed to be NULL.
 	reimb_status_id_fk INTEGER REFERENCES ers_reimbursement_status(reimb_status_id) NOT NULL,
 	reimb_type_id_fk INTEGER REFERENCES ers_reimbursement_type(reimb_type_id) NOT NULL
@@ -60,10 +60,23 @@ CREATE TABLE ers_reimbursement(
 );
 
 
+INSERT INTO ers_user_roles(user_role)
+VALUES('Employee'),
+('Financial Manager');
+
+INSERT INTO ers_reimbursement_status(reimb_status)
+VALUES('PENDING'),
+('APPROVED'),
+('DENIED');
+
+INSERT INTO ers_reimbursement_type(reimb_type)
+VALUES('LODGING'),
+('TRAVEL'),
+('FOOD'),
+('OTHER');
+
 --your foreign keys will link back to primary keys of type SERIAL, and the foreign keys should be type INTEGER.
 --reimb_author is a foreign key of type INTEGER that relates to the user_id of type SERIAL.
-
-
 
 
 
