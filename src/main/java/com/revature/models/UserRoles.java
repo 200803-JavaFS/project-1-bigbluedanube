@@ -18,7 +18,6 @@ public class UserRoles implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="ers_user_role_id")
-//	@JoinColumn(name="ers_user_role_id", referencedColumnName="user_role_id_fk")
 	private int userRoleId;
 	
 	@Column(name="user_role", nullable=false)

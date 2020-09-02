@@ -17,7 +17,7 @@
 			System.out.println() -->
 		<!-- this is stuff we typically do not include when we're making things 
 			for clients. They do not need to see (what prints to) the console. -->
-		<property name="hibernate.default_schema">ers_users</property>
+		<property name="hibernate.default_schema">public</property>
 		<property name="hibernate.show_sql">true</property>
 		<property name="hibernate.format_sql">true</property>
 		<property name="hibernate.hbm2ddl.auto">update</property>
