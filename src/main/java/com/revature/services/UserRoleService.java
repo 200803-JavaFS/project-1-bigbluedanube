@@ -11,7 +11,7 @@ import com.revature.models.UserRoles;
 
 public class UserRoleService {
 	
-	private static final Logger log = LogManager.getLogger(UserService.class);
+	private static final Logger log = LogManager.getLogger(UserRoleService.class);
 	
 	IUserRolesDAO ursDao = new UserRolesDAO();
 	

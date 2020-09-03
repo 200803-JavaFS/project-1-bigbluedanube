@@ -1,6 +1,7 @@
 package com.revature.controllers;
 
 import java.io.BufferedReader;
+
 import java.io.IOException;
 import java.util.List;
 
@@ -11,6 +12,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.revature.models.User;
 import com.revature.services.UserService;
+
+
+//EITHER PUT ALL USER FUNCTIONALITY HERE OR CREATE A SEPARATE CONTROLLER FOR THE OTHER USER TYPE.
+
 
 public class UserController {
 	

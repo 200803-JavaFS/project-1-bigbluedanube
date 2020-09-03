@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.revature.models.User;
 
+// IDEALLY, THE LOGOUT SERVLET WOULD ALSO RESIDE HERE. 
+// IF ANY BUGS CROP UP, I WILL CANNIBALIZE IT INTO THIS SERVLET.
+
 public class LoginServlet extends HttpServlet {			// This whole thing creates a login page.
 
 	private static final long serialVersionUID = 1L;	// can't hurt program, but the warning under-lines annoyed me.
