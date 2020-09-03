@@ -35,14 +35,14 @@ public class LoginController {
 					ses.setAttribute("user", l);
 					ses.setAttribute("loggedin", true);
 					res.setStatus(200);
-					res.getWriter().println("Login Successful");
+					res.getWriter().println("Login Successful. Welcome to the Iron Bank of Braavos.");
 				} else {
 					HttpSession ses = req.getSession(false);
 					if (ses != null) {
 						ses.invalidate();
 					}
 					res.setStatus(401); // Status Code 401 = Unauthorized.
-					res.getWriter().println("Login failed");
+					res.getWriter().println("Login failed.");
 				}
 			} 
 			
@@ -85,16 +85,16 @@ public class LoginController {
 		HttpSession ses = req.getSession(false);
 
 		if (ses != null) {
-			LoginDTO l = (LoginDTO) ses.getAttribute("user"); // We cast this to an DTO. Can you explain why we did
+			LoginDTO l = (LoginDTO) ses.getAttribute("user"); 	// We cast this to an DTO. Can you explain why we did
 																// that? Because Attributes belong to Objects, and we
 																// have to specify the Object to which this Attribute
 																// belongs.
 			ses.invalidate();
 			res.setStatus(200); // "Ok", which is a type of Success!
-			res.getWriter().println("l.username" + " has logged out successfully.");
+			res.getWriter().println(l.username + " has logged out successfully.");
 		} else {
 			res.setStatus(400); // "Bad Request", which is a type of Client-Side Error.
-			res.getWriter().println("You muse be logged in to logout.");
+			res.getWriter().println("Status 400: You have made a bad request. You must be logged in to logout.");
 		}
 	}
 

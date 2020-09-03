@@ -12,6 +12,7 @@ public class MasterServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	private static UserController uc = new UserController();
+	private static LoginController lc = new LoginController();
 	private static ReimbursementController rc = new ReimbursementController();
 
 	public MasterServlet() {
@@ -60,10 +61,13 @@ public class MasterServlet extends HttpServlet {
 			}
 			break;
 			
+		// Fixed my LoginController specifically to implement the following cases because I saw them in Lev's code.
 		case "login":
+			lc.login(req, res);
 			break;
 			
 		case "logout":
+			lc.logout(req, res);
 			break;
 		}
 		
