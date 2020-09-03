@@ -1,7 +1,6 @@
 package com.revature.controllers;
 
 import java.io.BufferedReader;
-
 import java.io.IOException;
 import java.util.List;
 
@@ -9,41 +8,35 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.revature.models.Reimbursement;
+import com.revature.services.ReimbursementService;
 
-import com.revature.models.User;
-import com.revature.services.UserService;
-
-
-//EITHER PUT ALL USER FUNCTIONALITY HERE OR CREATE A SEPARATE CONTROLLER FOR THE OTHER USER TYPE.
-
-
-public class UserController {
+public class ReimbursementController {
 	
-	private static UserService us = new UserService();
+	private static ReimbursementService rs = new ReimbursementService();
 	private static ObjectMapper om = new ObjectMapper();
 	
-	public void getUser(HttpServletResponse res, int id) throws IOException {
+	public void getReimbursement(HttpServletResponse res, int id) throws IOException {
 		
-		User u = us.findById(id);
-		if(u == null) {
+		Reimbursement r = rs.findById(id);
+		if(r == null) {
 			res.setStatus(204);
 		} else {
 			res.setStatus(200);
-			String json = om.writeValueAsString(u);
+			String json = om.writeValueAsString(r);
 			res.getWriter().println(json);
 		}
 	}
 	
-	public void getAllUsers(HttpServletResponse res) throws IOException {
-		List<User> all = us.findAll();
+	public void getAllReimbursements(HttpServletResponse res) throws IOException {
+		List<Reimbursement> all = rs.findAll();
 		res.getWriter().println(om.writeValueAsString(all));
-		//converts the list of Users to a JSON String, and then putting that into the body.
+		// Converts the list of Reimbursements to a JSON String, and then puts that into the body.
 		res.setStatus(200);
 	}
 	
-	
-	public void addUser(HttpServletRequest req, HttpServletResponse res) throws IOException {
-	
+	public void addReimbursement(HttpServletRequest req, HttpServletResponse res) throws IOException {
+		
 		BufferedReader reader = req.getReader();
 		
 		StringBuilder s = new StringBuilder();
@@ -59,23 +52,19 @@ public class UserController {
 		String body = new String(s);
 		System.out.println(body);
 		
-		User u = om.readValue(body, User.class);
+		Reimbursement r = om.readValue(body, Reimbursement.class);
 		
-		System.out.println(u);
+		System.out.println(r);
 		
-		if (us.addUser(u)) {
+		if (rs.addReimbursement(r)) {
 			
 			res.setStatus(201);				// 201 means 'created'
-			res.getWriter().println("User was created.");
+			res.getWriter().println("Reimbursement was created.");
 		} else {
 			res.setStatus(403);				// 403 means 'forbidden'
-			res.getWriter().println("Status 403: This user is forbidden from doing business with The Iron Bank. Change your face and try again.");
-
+			res.getWriter().println("Status Code 403: Such a transaction is forbidden by the Iron Bank. Try again.");
 		}
 
 	}
-
-               
-	
 
 }

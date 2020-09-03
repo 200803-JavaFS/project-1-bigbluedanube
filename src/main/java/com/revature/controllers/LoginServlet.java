@@ -29,12 +29,13 @@ public class LoginServlet extends HttpServlet {			// This whole thing creates a 
 		u.setUsername(req.getParameter("UserId"));
 		u.setPassword(req.getParameter("password"));
 		
+		
 		RequestDispatcher rd = null;
 		PrintWriter out = res.getWriter();
 		out.print("<h1> Hello from your doPost() method. </h1>");
 
 		
-		if(u.getUsername().equals("tom") && u.getPassword().equals("jerry")) {
+		if(u.getUsername().equals("agent") && u.getPassword().equals("11235811")) {
 			rd = req.getRequestDispatcher("success");
 			rd.forward(req, res);
 		} else {

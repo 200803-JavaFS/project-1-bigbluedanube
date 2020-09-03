@@ -12,6 +12,7 @@ public class MasterServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	private static UserController uc = new UserController();
+	private static ReimbursementController rc = ReimbursementController();
 
 	public MasterServlet() {
 		super();
@@ -33,7 +34,19 @@ public class MasterServlet extends HttpServlet {
 		
 		try {
 		switch (portions[0]) {
-		case "user":
+		case "User":
+			if(req.getMethod().equals("GET")) {				// GET means you are getting something FROM the DB. It's like [midiparse] in Max/MSP
+				if(portions.length == 2) {
+					int id = Integer.parseInt(portions[1]);	// this is dangerous because the input might not be an int. So we nest the whole thing in a Try-Catch Block.
+					uc.getUser(res, id);
+				}else if (portions.length == 1){
+				uc.getAllUsers(res);	
+				}
+			} else if (req.getMethod().equals("POST")){		// POST means YOU are POSTING/adding something TO the DB.
+				uc.addUser(req, res);
+			}
+			
+		case "Reimbursement":
 			if(req.getMethod().equals("GET")) {				// GET means you are getting something FROM the DB. It's like [midiparse] in Max/MSP
 				if(portions.length == 2) {
 					int id = Integer.parseInt(portions[1]);	// this is dangerous because the input might not be an int. So we nest the whole thing in a Try-Catch Block.

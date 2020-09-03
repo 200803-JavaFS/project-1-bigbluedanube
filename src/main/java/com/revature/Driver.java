@@ -1,11 +1,16 @@
 package com.revature;
+import com.fasterxml.jackson.core.util.ByteArrayBuilder;
 import com.revature.daos.*;
 
 import java.security.NoSuchAlgorithmException;
+import java.sql.Timestamp;
 import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.revature.models.Reimbursement;
+import com.revature.models.ReimbursementStatus;
+import com.revature.models.ReimbursementType;
 import com.revature.models.User;
 import com.revature.models.UserRoles;
 
@@ -20,6 +25,8 @@ public class Driver {
 	
 	private static final Logger log = LogManager.getLogger(Driver.class);
 	
+	
+	
 	public static void main(String[] args) throws NoSuchAlgorithmException {
 		InsertValues();
 		
@@ -28,6 +35,15 @@ public class Driver {
 		for(User u : users) {
 			System.out.println(u);
 		}
+		
+		
+		List<Reimbursement> reimbs = rDao.findAll();
+		
+		for(Reimbursement r : reimbs) {
+			System.out.println(r);
+		}
+		
+		
 	}
 
 	private static void InsertValues() throws NoSuchAlgorithmException {	// Jane Huang's influence comes in here.
@@ -44,6 +60,14 @@ public class Driver {
 		uDao.addUser(user3);
 		uDao.addUser(user4);
 		uDao.addUser(user5);
+		
+		Reimbursement reimb1 = new Reimbursement(1000.00, Timestamp reimbSubmitted, Timestamp reimbResolved, "FOOD", ByteArrayBuilder reimbReceipt, user3, user1, ReimbursementStatus reimbStatusFk, ReimbursementType reimbTypeFk);
+		Reimbursement reimb1 = new Reimbursement();
+		Reimbursement reimb1 = new Reimbursement();
+		Reimbursement reimb1 = new Reimbursement();
+		Reimbursement reimb1 = new Reimbursement();
+		
+		// This is Dummy Data that tests persistence to the DB.
 
 	}
 
