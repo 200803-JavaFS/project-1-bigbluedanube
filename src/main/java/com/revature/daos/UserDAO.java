@@ -25,6 +25,15 @@ public class UserDAO implements IUserDAO {
 		User u = ses.get(User.class, id);
 		return u;
 	}
+	
+	public User findByUsername(String username) {		// This one's new!!! Thank you, Alex!!!
+		Session ses = HibernateUtil.getSession();
+		
+//		return ses.get(User.class, username); 
+		
+		User u = (User) ses.createQuery("FROM User U WHERE U.username = :userName").setParameter("userName", username).uniqueResult();
+		return u;
+	}
 
 	@Override
 	public boolean addUser(User u) {

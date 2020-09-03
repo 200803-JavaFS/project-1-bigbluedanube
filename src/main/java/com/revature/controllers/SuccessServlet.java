@@ -20,7 +20,7 @@ public class SuccessServlet extends HttpServlet {
 	protected void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		res.setContentType("text/html");
 		PrintWriter out = res.getWriter();
-		out.print("<h2>Welcome " + req.getParameter("userId") + "!</h2>");
+		out.print("<h2 style='color:black; font-family: Work Sans; text-align:left'>Welcome " + req.getParameter("userId") + "!</h2>");
 	}
 
 }

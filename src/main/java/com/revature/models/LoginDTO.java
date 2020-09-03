@@ -6,4 +6,14 @@ public class LoginDTO {
 	public String username;
 	public String password;
 	
+	
+	public void setUsername(String newName) {
+		this.username = newName;
+	}
+
+
+	public void setPassword(String newPW) {
+		this.password = newPW;
+	}
+	
 }

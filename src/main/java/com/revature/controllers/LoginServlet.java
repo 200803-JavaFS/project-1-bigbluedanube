@@ -16,7 +16,7 @@ import com.revature.models.User;
 
 public class LoginServlet extends HttpServlet {			// This whole thing creates a login page.
 
-	private static final long serialVersionUID = 1L;	// can't hurt program, but the warning under-lines annoyed me.
+	private static final long serialVersionUID = 1L;	// Can't hurt program, but the warning under-lines annoyed me.
 
 	public LoginServlet() {
 		super();

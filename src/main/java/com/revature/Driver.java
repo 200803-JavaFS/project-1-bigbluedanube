@@ -5,26 +5,28 @@ import com.revature.daos.*;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Timestamp;
 import java.util.List;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import java.util.Scanner;
 
+import com.revature.models.LoginDTO;
 import com.revature.models.Reimbursement;
 import com.revature.models.ReimbursementStatus;
 import com.revature.models.ReimbursementType;
 import com.revature.models.User;
 import com.revature.models.UserRoles;
+import com.revature.services.LoginService;
 
 
 public class Driver {
 	
 	// Both Tim's Movie/Director/Character demo and Jane Huang's code proved incredibly helpful here. Thank you both.
+	// For now, I have to run my entire SQL script to avoid bugs here. I don't know if that's kosher.
 	
 	public static IUserDAO uDao = new UserDAO();
 	public static IReimbursementDAO rDao = new ReimbursementDAO();
 	public static IUserRolesDAO ursDao = new UserRolesDAO();
+	public static LoginService ls = new LoginService();
 	
-	private static final Logger log = LogManager.getLogger(Driver.class);
-	
+	public static Scanner myScanner = new Scanner(System.in);
 	
 	
 	public static void main(String[] args) throws NoSuchAlgorithmException {
@@ -43,6 +45,17 @@ public class Driver {
 			System.out.println(r);
 		}
 		
+		LoginDTO lDTO = new LoginDTO();
+		
+		String newName = myScanner.nextLine();
+		String newPW = myScanner.nextLine();
+		
+		lDTO.setUsername(newName);
+		lDTO.setPassword(newPW);
+		
+		ls.login(lDTO);
+		
+
 		
 	}
 

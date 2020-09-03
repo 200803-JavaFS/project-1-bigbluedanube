@@ -17,6 +17,7 @@ public class LogoutServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		res.sendRedirect("");
+		
 	}
 
 }
