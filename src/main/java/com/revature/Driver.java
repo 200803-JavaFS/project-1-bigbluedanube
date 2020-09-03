@@ -61,13 +61,18 @@ public class Driver {
 		uDao.addUser(user4);
 		uDao.addUser(user5);
 		
-		Reimbursement reimb1 = new Reimbursement(1000.00, Timestamp reimbSubmitted, Timestamp reimbResolved, "FOOD", ByteArrayBuilder reimbReceipt, user3, user1, ReimbursementStatus reimbStatusFk, ReimbursementType reimbTypeFk);
-		Reimbursement reimb1 = new Reimbursement();
-		Reimbursement reimb1 = new Reimbursement();
-		Reimbursement reimb1 = new Reimbursement();
-		Reimbursement reimb1 = new Reimbursement();
-		
-		// This is Dummy Data that tests persistence to the DB.
+//		Reimbursement reimb1 = new Reimbursement(10000.00, Timestamp reimbSubmitted, Timestamp reimbResolved, "LODGING", ByteArrayBuilder reimbReceipt, user3, user1, ReimbursementStatus reimbStatusFk, ReimbursementType reimbTypeFk);
+//		Reimbursement reimb2 = new Reimbursement(10.00, Timestamp reimbSubmitted, Timestamp reimbResolved, "TRAVEL", ByteArrayBuilder reimbReceipt, user4, user2, ReimbursementStatus reimbStatusFk, ReimbursementType reimbTypeFk);
+//		Reimbursement reimb3 = new Reimbursement(50000.00, Timestamp reimbSubmitted, Timestamp reimbResolved, "FOOD", ByteArrayBuilder reimbReceipt, user5, user1, ReimbursementStatus reimbStatusFk, ReimbursementType reimbTypeFk);
+//		Reimbursement reimb4 = new Reimbursement(90000.00, Timestamp reimbSubmitted, Timestamp reimbResolved, "OTHER", ByteArrayBuilder reimbReceipt, user3, user2, ReimbursementStatus reimbStatusFk, ReimbursementType reimbTypeFk);
+//		Reimbursement reimb5 = new Reimbursement(5.00, Timestamp reimbSubmitted, Timestamp reimbResolved, "LODGING", ByteArrayBuilder reimbReceipt, user4, user1, ReimbursementStatus reimbStatusFk, ReimbursementType reimbTypeFk);
+//		rDao.addReimbursement(reimb1);
+//		rDao.addReimbursement(reimb2);
+//		rDao.addReimbursement(reimb3);
+//		rDao.addReimbursement(reimb4);
+//		rDao.addReimbursement(reimb5);
+
+// This is Dummy Data that tests persistence to the DB.
 
 	}
 

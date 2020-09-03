@@ -35,13 +35,13 @@ public class LoginServlet extends HttpServlet {			// This whole thing creates a 
 		out.print("<h1> Hello from your doPost() method. </h1>");
 
 		
-		if(u.getUsername().equals("agent") && u.getPassword().equals("11235811")) {
+		if(u.getUsername().equals("agent") && u.getPassword().equals("11235811")) {		// THIS WILL HAVE TO CHANGE. NEEDS ENCRYPTION.
 			rd = req.getRequestDispatcher("success");
 			rd.forward(req, res);
 		} else {
 			rd = req.getRequestDispatcher("index.html");
 			rd.include(req, res);
-			out.print("<span style='color:red; text-align:center'> Invalid Username/Password</span>");
+			out.print("<span style='color:red; font-family:Work Sans; text-align:center'> Invalid Username/Password</span>");
 		}
 	}
 
