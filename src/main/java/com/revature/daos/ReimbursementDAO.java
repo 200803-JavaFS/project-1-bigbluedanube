@@ -1,14 +1,21 @@
 package com.revature.daos;
 
+import java.sql.Timestamp;
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
 import com.revature.models.Reimbursement;
+import com.revature.services.LoginService;
 import com.revature.utils.HibernateUtil;
 
 public class ReimbursementDAO implements IReimbursementDAO {
+	
+	private static final Logger log = LogManager.getLogger(LoginService.class);
+
 	
 	@Override
 	public List<Reimbursement> findAll() {
@@ -26,7 +33,6 @@ public class ReimbursementDAO implements IReimbursementDAO {
 		return r;
 	}
 	
-
 	@Override
 	public boolean addReimbursement(Reimbursement r) {
 		Session ses = HibernateUtil.getSession();
@@ -38,5 +44,18 @@ public class ReimbursementDAO implements IReimbursementDAO {
 			e.printStackTrace();
 			return false;
 		}
+	}
+	
+	@Override
+	public Timestamp submitReimbursement(Timestamp reimbSubmitted) {
+		Session ses = HibernateUtil.getSession();
+		return reimbSubmitted;
+				
+	}
+	
+	@Override
+	public Timestamp resolveReimbursement(Timestamp reimbResolved) {
+		Session ses = HibernateUtil.getSession();
+		return reimbResolved;
 	}
 }

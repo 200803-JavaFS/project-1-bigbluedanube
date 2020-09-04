@@ -1,5 +1,4 @@
 package com.revature;
-import com.fasterxml.jackson.core.util.ByteArrayBuilder;
 import com.revature.daos.*;
 
 import java.security.NoSuchAlgorithmException;
@@ -22,8 +21,11 @@ public class Driver {
 	// For now, I have to run my entire SQL script to avoid bugs here. I don't know if that's kosher.
 	
 	public static IUserDAO uDao = new UserDAO();
-	public static IReimbursementDAO rDao = new ReimbursementDAO();
 	public static IUserRolesDAO ursDao = new UserRolesDAO();
+	public static IReimbursementDAO rDao = new ReimbursementDAO();
+	public static IReimbursementStatusDAO rsDao = new ReimbursementStatusDAO();
+	public static IReimbursementTypeDAO rtDao = new ReimbursementTypeDAO();
+
 	public static LoginService ls = new LoginService();
 	
 	public static Scanner myScanner = new Scanner(System.in);
@@ -55,13 +57,11 @@ public class Driver {
 		
 		ls.login(lDTO);
 		
-
-		
 	}
 
 	private static void InsertValues() throws NoSuchAlgorithmException {	// Jane Huang's influence comes in here.
 		UserRoles role1 = ursDao.findById(1);			
-		UserRoles role2 = ursDao.findById(2);
+		UserRoles role2 = ursDao.findById(2);		
 		
 		User user1 = new User("IronBank4895", "wewillgetourdue", "Tycho", "Nestoris", "tycho.nestoris@ironbank.co.braavos", role1);
 		User user2 = new User("StannisTheMannis", "fewerNeverMind", "Stannis", "Baratheon", "stannisthemannis@dragonstone.gov", role1);
@@ -74,11 +74,40 @@ public class Driver {
 		uDao.addUser(user4);
 		uDao.addUser(user5);
 		
-//		Reimbursement reimb1 = new Reimbursement(10000.00, Timestamp reimbSubmitted, Timestamp reimbResolved, "LODGING", ByteArrayBuilder reimbReceipt, user3, user1, ReimbursementStatus reimbStatusFk, ReimbursementType reimbTypeFk);
-//		Reimbursement reimb2 = new Reimbursement(10.00, Timestamp reimbSubmitted, Timestamp reimbResolved, "TRAVEL", ByteArrayBuilder reimbReceipt, user4, user2, ReimbursementStatus reimbStatusFk, ReimbursementType reimbTypeFk);
-//		Reimbursement reimb3 = new Reimbursement(50000.00, Timestamp reimbSubmitted, Timestamp reimbResolved, "FOOD", ByteArrayBuilder reimbReceipt, user5, user1, ReimbursementStatus reimbStatusFk, ReimbursementType reimbTypeFk);
-//		Reimbursement reimb4 = new Reimbursement(90000.00, Timestamp reimbSubmitted, Timestamp reimbResolved, "OTHER", ByteArrayBuilder reimbReceipt, user3, user2, ReimbursementStatus reimbStatusFk, ReimbursementType reimbTypeFk);
-//		Reimbursement reimb5 = new Reimbursement(5.00, Timestamp reimbSubmitted, Timestamp reimbResolved, "LODGING", ByteArrayBuilder reimbReceipt, user4, user1, ReimbursementStatus reimbStatusFk, ReimbursementType reimbTypeFk);
+		
+		ReimbursementStatus rStatus1 = rsDao.findById(1);	// PENDING
+		ReimbursementStatus rStatus2 = rsDao.findById(2);	// APPROVED
+		ReimbursementStatus rStatus3 = rsDao.findById(3);	// DENIED
+		
+		ReimbursementType rType1 = rtDao.findById(1);		// LODGING
+		ReimbursementType rType2 = rtDao.findById(2);		// TRAVEL
+		ReimbursementType rType3 = rtDao.findById(3);		// FOOD
+		ReimbursementType rType4 = rtDao.findById(4);		// OTHER
+		
+		
+		// This is giving me trouble. If I can hack this, I can build reimbursements in Java
+		// Those reimbursements will persist to the database, and then I never have to touch SQL again.
+		
+		Timestamp submitted1 = rDao.submitReimbursement(reimbSubmitted);
+		Timestamp submitted2 = rDao.submitReimbursement(reimbSubmitted);
+		Timestamp submitted3 = rDao.submitReimbursement(reimbSubmitted);
+		Timestamp submitted4 = rDao.submitReimbursement(reimbSubmitted);
+		Timestamp submitted5 = rDao.submitReimbursement(reimbSubmitted);
+		
+		Timestamp resolved1 = rDao.resolveReimbursement(reimbResolved);
+		Timestamp resolved2 = rDao.resolveReimbursement(reimbResolved);
+		Timestamp resolved3 = rDao.resolveReimbursement(reimbResolved);
+		Timestamp resolved4 = rDao.resolveReimbursement(reimbResolved);
+		Timestamp resolved5 = rDao.resolveReimbursement(reimbResolved);
+
+		
+
+		
+//		Reimbursement reimb1 = new Reimbursement(10000.00, Timestamp reimbSubmitted, Timestamp reimbResolved, "Guest tribute for royal progress to Winterfell.", user3, user1, rStatus1, rType1);
+//		Reimbursement reimb2 = new Reimbursement(10.00, Timestamp reimbSubmitted, Timestamp reimbResolved, "Purchased a horse to travel to the Wall.", user4, user2, rStatus1, rType2);
+//		Reimbursement reimb3 = new Reimbursement(50000.00, Timestamp reimbSubmitted, Timestamp reimbResolved, "Bought a bowl of brown in Flea Bottom.", user5, user1, rStatus1, rType3);
+//		Reimbursement reimb4 = new Reimbursement(90000.00, Timestamp reimbSubmitted, Timestamp reimbResolved, "Payment for the breastplate stretcher.", user3, user2, rStatus1, rType4);
+//		Reimbursement reimb5 = new Reimbursement(5.00, Timestamp reimbSubmitted, Timestamp reimbResolved, "Bribe for the goldcloaks to let me out of the city.", user4, user1, rStatus1, rType4);
 //		rDao.addReimbursement(reimb1);
 //		rDao.addReimbursement(reimb2);
 //		rDao.addReimbursement(reimb3);
