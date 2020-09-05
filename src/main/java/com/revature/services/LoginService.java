@@ -12,19 +12,47 @@ import com.revature.models.User;
 public class LoginService {
 	
 	private static final Logger log = LogManager.getLogger(LoginService.class);
+	private static UserService us = new UserService();
 	private static UserDAO uDao = new UserDAO();
-		
-	// Alex did this for debugging purposes. Thank you, Alex!
 
-	public boolean login(LoginDTO lDTO) {
-		User u = uDao.findByUsername(lDTO.username);					// "Go and find the User who has this username."
+	public boolean login(User u) {
+		StringBuilder sb = new StringBuilder();
+		int hashedPW = u.getPassword().hashCode();
+		sb.append(hashedPW);
+		
+		String hashedSBPW = sb.toString();
+		
+		u = us.findByPassword(u.getUsername(), hashedSBPW);
+		log.info("The user's encrypted password is: " + hashedSBPW);
+		log.info("The user's unencrypted password is: " + u.getPassword());
+		
+		if(u.getPassword().equals(hashedSBPW)) {
+			log.info("IT'S A MATCH!");
+			return true;
+			
+		} else {
+			log.info("These passwords do not match.");
+			return false;
+		}
+		
+	}
+	
+}
+
+
+
+
+/*
+ * 		// Alex did this for debugging purposes. Thank you, Alex!
+
+ * 		User u = uDao.findByUsername(u.getUsername());					// "Go and find the User who has this username."
 		System.out.println("The User pw is... " + u.getPassword());		// print off their password
-		System.out.println("The LoginDTO pw = " + lDTO.password);		// print off the LoginDTO password.
+		System.out.println("The LoginDTO pw = " + u.getPassword());		// print off the LoginDTO password.
 		
-		System.out.println(u);		
+		System.out.println(u);	
 		
-		if(u != null) {
-			if(u.getPassword().equals(lDTO.password)) {				// Do they match?
+					if(u != null) {
+			if(u.getPassword().equals(u.getPassword())) {			// Do they match?
 				log.info("The Login was successful.");				// Yes! Success!
 				return true;
 			} else {
@@ -36,9 +64,7 @@ public class LoginService {
 			log.info("Incorrect Entry or Unknown User.");
 			return false;
 		}
-	}
-	
-}
+ */
 	
 	
 	

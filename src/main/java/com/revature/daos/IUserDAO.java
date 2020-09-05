@@ -10,10 +10,15 @@ public interface IUserDAO {
 	
 	public User findById(int id);
 	
+	User findByUsername(String username);
+	
+	User findByPassword(String password);
+	
 	public boolean addUser(User u);
 	
 	public boolean updateUser(User u); 
 	
 	public boolean deleteUser(int userId);
+
 
 }
