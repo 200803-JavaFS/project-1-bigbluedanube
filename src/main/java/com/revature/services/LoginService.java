@@ -1,7 +1,5 @@
 package com.revature.services;
 
-import java.util.Scanner;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -26,15 +24,16 @@ public class LoginService {
 		System.out.println(u);		
 		
 		if(u != null) {
-			if(u.getPassword().equals(lDTO.password)) {					// Do they match?
-				System.out.println("The Login was successful.");		// Yes! Success!
+			if(u.getPassword().equals(lDTO.password)) {				// Do they match?
+				log.info("The Login was successful.");				// Yes! Success!
 				return true;
 			} else {
-				System.out.println("The password was incorrect.");		// Nope! No login for YOU!
+				log.info("Incorrect password. Login failed.");		// Nope! No login for YOU!
 				return false;
 			}
 		} else {
-			System.out.println("We have no users under that name, Your Grace.");
+			System.out.println("This person does not exist.");
+			log.info("Incorrect Entry or Unknown User.");
 			return false;
 		}
 	}

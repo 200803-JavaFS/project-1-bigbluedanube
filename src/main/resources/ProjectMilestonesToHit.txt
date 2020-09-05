@@ -1,0 +1,22 @@
+Today (Erev Shabbat)
+1. User and Reimbursement Dummy Data persisted to the database. - DONE.
+2. Working log.txt file (all logs appear on the file at runtime). - DONE.
+
+Goals for EOD Saturday/Yom Rishon:
+1. Servlets up and running.
+2. Functioning/debugged LoginService.
+3. Unit Testing - do this on Discord--you'll need help.
+4. Frontend pages written out (don't have to be fully debugged yet).
+
+Goals for EOD Sunday/Yom Sheni:
+1. Fully Debugged LoginService.
+2. Servlets, Servlets, Servlets.
+3. Frontend written, in debugging phase.
+
+Goals for EOD Monday/Yom Shlishi
+1. Debugged Frontend.
+2. 70% Test Coverage of the Service Layer
+3. Debugged Frontend. Trial phase - Alpha Testing (anyone who wants to try my webpage).
+
+Tuesday... PRESENTATION.
+

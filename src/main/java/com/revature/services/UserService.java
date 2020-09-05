@@ -11,10 +11,9 @@ import com.revature.models.User;
 
 public class UserService {
 	
-	private static final Logger log = LogManager.getLogger(UserService.class);	// I believe this is where we retrieve users from the DB.
+	private static final Logger log = LogManager.getLogger(UserService.class);
 
-
-		IUserDAO uDao = new UserDAO();		// it may be helpful to have a few rows of Dummy Data for this part.
+		IUserDAO uDao = new UserDAO();
 		
 		public List<User> findAll() {
 			log.info("Retrieving all users.");
@@ -22,12 +21,12 @@ public class UserService {
 		}
 		
 		public User findById(int id) {
-			log.info("Finding user by ID.");
+			log.info("Finding user by ID...");
 			return uDao.findById(id);
 		}
 		
 		public boolean addUser(User u) {
-			log.info("Adding new user.");
+			log.info("Adding new user...");
 			return uDao.addUser(u);
 		}
 		
@@ -37,7 +36,7 @@ public class UserService {
 		}
 		
 		public boolean deleteUser(int userId) {
-			log.info("Deleting user.");
+			log.info("Deleting user...");
 			return uDao.deleteUser(userId);
 		}
 	}

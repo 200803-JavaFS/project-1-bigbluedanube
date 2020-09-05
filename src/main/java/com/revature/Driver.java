@@ -23,13 +23,11 @@ public class Driver {
 	
 	public static IUserDAO uDao = new UserDAO();
 	public static IUserRolesDAO ursDao = new UserRolesDAO();
-	public static IReimbursementDAO rDao = new ReimbursementDAO();
-	
-	public static ReimbursementService rs = new ReimbursementService();
-	
+	public static IReimbursementDAO rDao = new ReimbursementDAO();	
 	public static IReimbursementStatusDAO rsDao = new ReimbursementStatusDAO();
 	public static IReimbursementTypeDAO rtDao = new ReimbursementTypeDAO();
-
+	
+	public static ReimbursementService rs = new ReimbursementService();
 	public static LoginService ls = new LoginService();
 	
 	public static Scanner myScanner = new Scanner(System.in);
@@ -89,10 +87,6 @@ public class Driver {
 		ReimbursementType rType2 = rtDao.findById(2);		// TRAVEL
 		ReimbursementType rType3 = rtDao.findById(3);		// FOOD
 		ReimbursementType rType4 = rtDao.findById(4);		// OTHER
-		
-		
-		// This is giving me trouble. If I can hack this, I can build reimbursements in Java
-		// Those reimbursements will persist to the database, and then I never have to touch SQL again.
 
 		
 		Reimbursement reimb1 = new Reimbursement(10000.00, null, null, "Guest tribute for royal progress to Winterfell.", user3, user1, rStatus1, rType1);
@@ -106,7 +100,7 @@ public class Driver {
 		rs.addReimbursement(reimb4);
 		rs.addReimbursement(reimb5);
 
-// This is Dummy Data that tests persistence to the DB.
+		// This is Dummy Data that tests persistence to the DB.
 
 	}
 

@@ -1,7 +1,5 @@
 package com.revature.models;
 
-import com.fasterxml.jackson.core.util.ByteArrayBuilder;
-
 import java.io.Serializable;
 import java.sql.Timestamp;
 

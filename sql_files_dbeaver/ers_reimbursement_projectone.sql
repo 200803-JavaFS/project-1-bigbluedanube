@@ -51,7 +51,6 @@ CREATE TABLE ers_reimbursement(
 	reimb_submitted TIMESTAMP NOT NULL,			--All applications for reimbursement are submitted at a specific time, and we want to record that.
 	reimb_resolved TIMESTAMP,					--This can be NULL because the reimbursement may not have been resolved yet.
 	reimb_description VARCHAR(250),				--User does not have to enter a description, but if they do, it must have fewer than 250 characters.
-	reimb_receipt BYTEA,						--This is a BLOB in our dialect of SQL. Its implementation is a stretch goal, so I'll allow it to be NULL.
 	reimb_author_fk INTEGER REFERENCES ers_users(ers_users_id) NOT NULL,							--Both the Reimbursement Author and the Resolver must be Users, so they reference the same Primary Key.
 	reimb_resolver_fk INTEGER REFERENCES ers_users(ers_users_id) NOT NULL,						--The reimbursement may not have been resolved yet, so it's allowed to be NULL.
 	reimb_status_id_fk INTEGER REFERENCES ers_reimbursement_status(reimb_status_id) NOT NULL,
@@ -75,8 +74,23 @@ VALUES('LODGING'),
 ('FOOD'),
 ('OTHER');
 
+
+--DROP FUNCTION trigger_set_time() CASCADE;
+   
+
+/*INSERT INTO ers_reimbursement(reimb_amount, reimb_submitted, reimb_resolved, reimb_description, reimb_author_fk, reimb_resolver_fk, reimb_status_id_fk, reimb_type_id_fk)
+VALUES(10000.00, DEFAULT, DEFAULT, 'Guest tribute for royal progress to Winterfell.', 3, 1, 1, 1),
+(10.00, DEFAULT, DEFAULT, 'Purchased a horse to travel to the Wall.', 4, 2, 1, 2),
+(50000.00, DEFAULT, DEFAULT, 'Bought a bowl of brown in Flea Bottom.', 5, 1, 1, 3),
+(90000.00, DEFAULT, DEFAULT, 'Payment for the breastplate stretcher.', 3, 2, 1, 4),
+(5.00, DEFAULT, DEFAULT, 'Bribe for the goldcloaks to let me out of the city.', 4, 1, 1, 4);*/
+
+
 --your foreign keys will link back to primary keys of type SERIAL, and the foreign keys should be type INTEGER.
 --reimb_author is a foreign key of type INTEGER that relates to the user_id of type SERIAL.
+
+
+--reimb_receipt BYTEA,			--This is a BLOB in our dialect of SQL. Its implementation is a stretch goal, so I'll allow it to be NULL.
 
 
 
