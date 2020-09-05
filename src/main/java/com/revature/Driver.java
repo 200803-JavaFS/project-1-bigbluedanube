@@ -13,6 +13,7 @@ import com.revature.models.ReimbursementType;
 import com.revature.models.User;
 import com.revature.models.UserRoles;
 import com.revature.services.LoginService;
+import com.revature.services.ReimbursementService;
 
 
 public class Driver {
@@ -23,6 +24,9 @@ public class Driver {
 	public static IUserDAO uDao = new UserDAO();
 	public static IUserRolesDAO ursDao = new UserRolesDAO();
 	public static IReimbursementDAO rDao = new ReimbursementDAO();
+	
+	public static ReimbursementService rs = new ReimbursementService();
+	
 	public static IReimbursementStatusDAO rsDao = new ReimbursementStatusDAO();
 	public static IReimbursementTypeDAO rtDao = new ReimbursementTypeDAO();
 
@@ -60,8 +64,10 @@ public class Driver {
 	}
 
 	private static void InsertValues() throws NoSuchAlgorithmException {	// Jane Huang's influence comes in here.
-		UserRoles role1 = ursDao.findById(1);			
-		UserRoles role2 = ursDao.findById(2);		
+		UserRoles role1 = new UserRoles(1, "Employee");		
+		UserRoles role2 = new UserRoles(2, "Financial Manager");
+		ursDao.addUserRoles(role1);
+		ursDao.addUserRoles(role2);
 		
 		User user1 = new User("IronBank4895", "wewillgetourdue", "Tycho", "Nestoris", "tycho.nestoris@ironbank.co.braavos", role1);
 		User user2 = new User("StannisTheMannis", "fewerNeverMind", "Stannis", "Baratheon", "stannisthemannis@dragonstone.gov", role1);
@@ -87,32 +93,18 @@ public class Driver {
 		
 		// This is giving me trouble. If I can hack this, I can build reimbursements in Java
 		// Those reimbursements will persist to the database, and then I never have to touch SQL again.
-		
-		Timestamp submitted1 = rDao.submitReimbursement(reimbSubmitted);
-		Timestamp submitted2 = rDao.submitReimbursement(reimbSubmitted);
-		Timestamp submitted3 = rDao.submitReimbursement(reimbSubmitted);
-		Timestamp submitted4 = rDao.submitReimbursement(reimbSubmitted);
-		Timestamp submitted5 = rDao.submitReimbursement(reimbSubmitted);
-		
-		Timestamp resolved1 = rDao.resolveReimbursement(reimbResolved);
-		Timestamp resolved2 = rDao.resolveReimbursement(reimbResolved);
-		Timestamp resolved3 = rDao.resolveReimbursement(reimbResolved);
-		Timestamp resolved4 = rDao.resolveReimbursement(reimbResolved);
-		Timestamp resolved5 = rDao.resolveReimbursement(reimbResolved);
 
 		
-
-		
-//		Reimbursement reimb1 = new Reimbursement(10000.00, Timestamp reimbSubmitted, Timestamp reimbResolved, "Guest tribute for royal progress to Winterfell.", user3, user1, rStatus1, rType1);
-//		Reimbursement reimb2 = new Reimbursement(10.00, Timestamp reimbSubmitted, Timestamp reimbResolved, "Purchased a horse to travel to the Wall.", user4, user2, rStatus1, rType2);
-//		Reimbursement reimb3 = new Reimbursement(50000.00, Timestamp reimbSubmitted, Timestamp reimbResolved, "Bought a bowl of brown in Flea Bottom.", user5, user1, rStatus1, rType3);
-//		Reimbursement reimb4 = new Reimbursement(90000.00, Timestamp reimbSubmitted, Timestamp reimbResolved, "Payment for the breastplate stretcher.", user3, user2, rStatus1, rType4);
-//		Reimbursement reimb5 = new Reimbursement(5.00, Timestamp reimbSubmitted, Timestamp reimbResolved, "Bribe for the goldcloaks to let me out of the city.", user4, user1, rStatus1, rType4);
-//		rDao.addReimbursement(reimb1);
-//		rDao.addReimbursement(reimb2);
-//		rDao.addReimbursement(reimb3);
-//		rDao.addReimbursement(reimb4);
-//		rDao.addReimbursement(reimb5);
+		Reimbursement reimb1 = new Reimbursement(10000.00, null, null, "Guest tribute for royal progress to Winterfell.", user3, user1, rStatus1, rType1);
+		Reimbursement reimb2 = new Reimbursement(10.00, null,null, "Purchased a horse to travel to the Wall.", user4, user2, rStatus1, rType2);
+		Reimbursement reimb3 = new Reimbursement(50000.00, null, null, "Bought a bowl of brown in Flea Bottom.", user5, user1, rStatus1, rType3);
+		Reimbursement reimb4 = new Reimbursement(90000.00, null, null, "Payment for the breastplate stretcher.", user3, user2, rStatus1, rType4);
+		Reimbursement reimb5 = new Reimbursement(5.00, null, null, "Bribe for the goldcloaks to let me out of the city.", user4, user1, rStatus1, rType4);
+		rs.addReimbursement(reimb1);
+		rs.addReimbursement(reimb2);
+		rs.addReimbursement(reimb3);
+		rs.addReimbursement(reimb4);
+		rs.addReimbursement(reimb5);
 
 // This is Dummy Data that tests persistence to the DB.
 

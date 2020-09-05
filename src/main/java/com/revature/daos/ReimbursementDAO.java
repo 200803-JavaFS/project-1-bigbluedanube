@@ -15,7 +15,6 @@ import com.revature.utils.HibernateUtil;
 public class ReimbursementDAO implements IReimbursementDAO {
 	
 	private static final Logger log = LogManager.getLogger(LoginService.class);
-
 	
 	@Override
 	public List<Reimbursement> findAll() {
@@ -38,24 +37,11 @@ public class ReimbursementDAO implements IReimbursementDAO {
 		Session ses = HibernateUtil.getSession();
 		
 		try {
-			ses.save(r);
+			ses.saveOrUpdate(r);
 			return true;
 		} catch (HibernateException e) {
 			e.printStackTrace();
 			return false;
 		}
-	}
-	
-	@Override
-	public Timestamp submitReimbursement(Timestamp reimbSubmitted) {
-		Session ses = HibernateUtil.getSession();
-		return reimbSubmitted;
-				
-	}
-	
-	@Override
-	public Timestamp resolveReimbursement(Timestamp reimbResolved) {
-		Session ses = HibernateUtil.getSession();
-		return reimbResolved;
 	}
 }

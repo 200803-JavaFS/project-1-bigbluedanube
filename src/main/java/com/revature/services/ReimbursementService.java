@@ -1,5 +1,7 @@
 package com.revature.services;
 
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -29,6 +31,16 @@ public class ReimbursementService {
 	
 	public boolean addReimbursement(Reimbursement r) {
 		log.info("Adding new reimbursement...");
+		Timestamp now = new Timestamp(new Date().getTime());
+		log.info(now);
+		r.setReimbSubmitted(now);
+		return rDao.addReimbursement(r);
+	}
+	
+	public boolean updateReimbursement(Reimbursement r) {
+		Timestamp now = new Timestamp(new Date().getTime());
+		log.info(now);
+		r.setReimbResolved(now);
 		return rDao.addReimbursement(r);
 	}
 

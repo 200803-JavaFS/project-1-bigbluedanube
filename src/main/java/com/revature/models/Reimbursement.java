@@ -76,7 +76,7 @@ public class Reimbursement implements Serializable {
 	
 	
 	public Reimbursement(double reimbAmount, Timestamp reimbSubmitted, Timestamp reimbResolved, String reimbDescription,
-			ByteArrayBuilder reimbReceipt, User reimbAuthor, User reimbResolver, ReimbursementStatus reimbStatusFk, ReimbursementType reimbTypeFk) {
+			User reimbAuthor, User reimbResolver, ReimbursementStatus reimbStatusFk, ReimbursementType reimbTypeFk) {
 		super();
 		this.reimbAmount = reimbAmount;
 		this.reimbSubmitted = reimbSubmitted;

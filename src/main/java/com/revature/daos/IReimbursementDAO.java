@@ -13,8 +13,4 @@ public interface IReimbursementDAO {
 	
 	public boolean addReimbursement(Reimbursement r);
 
-	Timestamp submitReimbursement(Timestamp reimbSubmitted);
-
-	Timestamp resolveReimbursement(Timestamp reimbResolved);
-
 }
