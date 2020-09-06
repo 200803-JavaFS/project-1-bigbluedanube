@@ -44,7 +44,19 @@ async function mosesPage(){
         window.location.href = "employeePage.html";
     } else {
         window.location.href = "project1.html";
+        console.log("Okay... sooooo... that was weird.");
     }
 }
 
-//     window.location.href = "successPage.html";
+async function logout(){
+    let resp2 = await fetch(url + "logout", {
+    })
+    if(resp.status === 200){
+        window.localation.href = "project1.html";
+    }
+}
+
+
+
+// ORPHANED CODE.
+// window.location.href = "successPage.html";

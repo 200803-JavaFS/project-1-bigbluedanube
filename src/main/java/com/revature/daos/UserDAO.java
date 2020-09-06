@@ -72,7 +72,7 @@ public class UserDAO implements IUserDAO {
 		Session ses = HibernateUtil.getSession();
 		
 		try {
-			ses.merge(u);		// This is a Hibernate Session (Update) Method. it merges with the object in the cache (if it exists), then updates the DB. Safer than update().
+			ses.merge(u);		// This is a Hibernate Session (Update) Method. It merges with the object in the cache (if it exists), then updates the DB. Safer than update().
 			return true;
 		} catch (HibernateException e) {
 			e.printStackTrace();
