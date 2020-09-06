@@ -28,6 +28,8 @@ class ServiceTest {
 	public static ReimbursementService reimbServTest;
 	public static UserRoleService userRoleTest;
 	public static UserService userServTest;	
+	
+	
 		
 
 	public ServiceTest() {
@@ -60,9 +62,8 @@ class ServiceTest {
 	@Test
 	public void loginTest() {
 		log.info("running loginTest...");
-		User u = new User("YetAnotherTest", "testpassword2", "Tester Junior", "McTestorsen", "alsoatest@junit.org", urTest);
-		System.out.println(u);
-		boolean loginBae = loginServTest.login(u);
+		LoginDTO lDTO = new LoginDTO("YetAnotherTest", "testpassword2");
+		User loginBae  = loginServTest.login(lDTO);
 	}
 	
 	

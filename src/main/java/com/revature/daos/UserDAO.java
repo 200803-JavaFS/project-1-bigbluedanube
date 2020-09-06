@@ -30,9 +30,7 @@ public class UserDAO implements IUserDAO {
 	@Override
 	public User findByUsername(String username) {
 		Session ses = HibernateUtil.getSession();
-		
-		User u = (User) ses.createQuery("FROM User WHERE username = " + username);
-		return u;
+        return (User) ses.createQuery("FROM User U WHERE U.username = :userName").setParameter("userName", username).uniqueResult();
 	}
 
 	

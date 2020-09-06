@@ -6,7 +6,17 @@ public class LoginDTO {
 	public String username;
 	public String password;
 	
+	public LoginDTO() {
+		super();
+	}
 	
+	public LoginDTO(String string, String string2) {
+		super();
+		this.username = string;
+		this.password = string2;
+	}
+
+
 	public void setUsername(String newName) {
 		this.username = newName;
 	}

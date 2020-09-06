@@ -3,6 +3,7 @@ package com.revature.services;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.revature.daos.IUserDAO;
 import com.revature.daos.UserDAO;
 import com.revature.models.LoginDTO;
 import com.revature.models.User;
@@ -12,28 +13,31 @@ import com.revature.models.User;
 public class LoginService {
 	
 	private static final Logger log = LogManager.getLogger(LoginService.class);
+	private static LoginDTO lDTO = new LoginDTO();
 	private static UserService us = new UserService();
+	UserDAO uDao = new UserDAO();
 
-	public boolean login(User u) {
-		String username = u.getUsername();
-		String password = u.getPassword();
+
+	public User login(LoginDTO lDTO) {
+		User u = uDao.findByUsername(lDTO.username);
 		
+				
 		StringBuilder sb = new StringBuilder();
-		int hashedPW = password.hashCode();
+		int hashedPW = lDTO.password.hashCode();
 		sb.append(hashedPW);
 		
 		String hashedSBPW = sb.toString();
 		
 		log.info("The user's encrypted password is: " + hashedSBPW);
-		log.info("The user's unencrypted password is: " + password);
+		log.info("The user's unencrypted password is: " + lDTO.password);
 		
-		if(us.findByNameAndPW(username, hashedSBPW)) {
+		if(us.findByNameAndPW(lDTO.username, hashedSBPW)) {
 			log.info("IT'S A MATCH!");
-			return true;
+			return u;
 			
 		} else {
 			log.info("These passwords do not match.");
-			return false;
+			return null;
 		}
 		
 	}

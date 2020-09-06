@@ -74,22 +74,22 @@ public class Driver {
 		String pw2 = "fewerNeverMind";
 		StringBuilder sb2 = new StringBuilder();
 		sb2.append(pw2.hashCode());
-		String hashedPW2 = new String(sb);
+		String hashedPW2 = new String(sb2);
 				
 		String pw3 = "killedbyaboar";
 		StringBuilder sb3 = new StringBuilder();
 		sb3.append(pw3.hashCode());
-		String hashedPW3 = new String(sb);
+		String hashedPW3 = new String(sb3);
 		
 		String pw4 = "blacksmith";
 		StringBuilder sb4 = new StringBuilder();
 		sb4.append(pw4.hashCode());
-		String hashedPW4 = new String(sb);
+		String hashedPW4 = new String(sb4);
 		
 		String pw5 = "facelessman";
 		StringBuilder sb5 = new StringBuilder();
 		sb5.append(pw5.hashCode());
-		String hashedPW5 = new String(sb);
+		String hashedPW5 = new String(sb5);
 		
 		User user1 = new User("IronBank4895", hashedPW, "Tycho", "Nestoris", "tycho.nestoris@ironbank.co.braavos", role1);
 		User user2 = new User("StannisTheMannis", hashedPW2, "Stannis", "Baratheon", "stannisthemannis@dragonstone.gov", role1);

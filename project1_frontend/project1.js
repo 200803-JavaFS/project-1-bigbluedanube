@@ -31,14 +31,20 @@ async function loginFunction() {
 
 // It's called "mosesPage" because it divides the users into two sections... get it?
 async function mosesPage(){
-    let data = await resp.JSON();   // this is the incoming data from our Tomcat server--it's a JSON string of our logged-in user's information.
-    console.log(data);              // curious to see what happens here. So far, nothing...?
-    window.location.href = "successPage";
-    let uId = data.userId;
-    sessionStorage.setItem("userId", userId);       // I could like th understand why this is a thing.
-    let uRole = data.UserRoles.userRoleId;
+    let resp2 = await fetch(url + "getUser", {   // resp2 is the incoming data from our Tomcat server--it's a JSON string of our logged-in user's information.
+        method : "GET",
+        credentials: "include"
+        })
+
+    let data = await resp2.json();
+    console.log(data);
+    if(data.userRoleId.userRoleId === 4){
+        window.location.href = "finManPage.html";
+    } else if (data.userRoleId.userRoleId === 3) {
+        window.location.href = "employeePage.html";
+    } else {
+        window.location.href = "project1.html";
+    }
 }
 
-
-//         window.location.href = "employeePage.html";
-//         window.location.href = "finManPage.html";
+//     window.location.href = "successPage.html";

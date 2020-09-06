@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.models.LoginDTO;
 import com.revature.models.User;
@@ -22,37 +25,14 @@ public class LoginController {
 	private static UserService us = new UserService();
 	private static LoginService ls = new LoginService();
 	private static ObjectMapper om = new ObjectMapper();
-	
-	
+	private static final Logger log = LogManager.getLogger(LoginController.class);
+	private User u;
 
-	public void login(HttpServletRequest req, HttpServletResponse res) throws IOException {
+	public boolean login(HttpServletRequest req, HttpServletResponse res) throws IOException {
 
 		if (req.getMethod().equals("GET")) {
-
-			if (req.getParameterMap().containsKey("username") && req.getParameterMap().containsKey("password")) {
-				User u = new User();
-				
-				u.setUsername(req.getParameter("username"));	// takes the input username/password and sets that to the Object.
-				u.setPassword(req.getParameter("password"));
-				
-				//now we need to check if it matches user we want to create (business logic)
-				//thus, need a service login
-
-				if (ls.login(u)) {
-					HttpSession ses = req.getSession();
-					ses.setAttribute("user", u);
-					ses.setAttribute("loggedin", true);
-					res.setStatus(200);
-					res.getWriter().println("Login Successful. Welcome to the Iron Bank of Braavos.");
-				} else {
-					HttpSession ses = req.getSession(false);
-					if (ses != null) {
-						ses.invalidate();
-					}
-					res.setStatus(401); // Status Code 401 = Unauthorized.
-					res.getWriter().println("Login failed.");
-				}
-			} 
+			log.warn("This is a very bad thing. Stop it.");
+			return false;
 			
 		} else if (req.getMethod().equals("POST")) {
 				// this is how a login SHOULD be handled; send the credentials in the body of a POST request.
@@ -69,24 +49,46 @@ public class LoginController {
 				
 				String body = new String(sb);
 				
-				User u = om.readValue(body, User.class);
+				lDTO  = om.readValue(body, LoginDTO.class);
+				u = ls.login(lDTO);
 				
-				if (ls.login(u)) {
+				if (u != null) {
 					HttpSession ses = req.getSession();
-					ses.setAttribute("user", u);
+					ses.setAttribute("User", u);
 					ses.setAttribute("loggedin", true);
 					res.setStatus(200);
 					res.getWriter().println("Login Successful");
+					return true;
 				} else {
 					HttpSession ses = req.getSession(false);
 					if (ses != null) {
 						ses.invalidate();
+						return false;
 					}
 					res.setStatus(401); // Status Code 401 = Unauthorized.
 					res.getWriter().println("Login failed");
+					return false;
 				}
+			} else {
+				log.warn("What happened?! WHAT DID YOU DO?!?!?!?!");
+				return false;
 			}
 		}
+	
+	
+	public void getUser(HttpServletRequest req, HttpServletResponse res) throws IOException {
+		if(req.getMethod().equals("GET")) {
+			HttpSession ses = req.getSession();
+			res.setStatus(200);
+			u = (User) ses.getAttribute("User");
+			String JSON = om.writeValueAsString(u);
+			res.getWriter().println(JSON);
+		} else {
+			log.warn("WHAT HAVE YOU DONE, JACKSON?!?! WHAT HAVE YOU DONE?!?!?!");
+		}
+	}
+	
+	
 
 	public void logout(HttpServletRequest req, HttpServletResponse res) throws IOException {
 		HttpSession ses = req.getSession(false);

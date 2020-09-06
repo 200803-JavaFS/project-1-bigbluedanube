@@ -8,12 +8,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import com.revature.services.LoginService;
+
 public class MasterServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	private static UserController uc = new UserController();
 	private static LoginController lc = new LoginController();
 	private static ReimbursementController rc = new ReimbursementController();
+	private static final Logger log = LogManager.getLogger(MasterServlet.class);
+
 
 	public MasterServlet() {
 		super();
@@ -35,41 +42,48 @@ public class MasterServlet extends HttpServlet {
 		
 		try {
 		switch (portions[0]) {
-		case "User":
-			if(req.getMethod().equals("GET")) {				// GET means you are getting something FROM the DB. It's like [midiparse] in Max/MSP
-				if(portions.length == 2) {
-					int id = Integer.parseInt(portions[1]);	// this is dangerous because the input might not be an int. So we nest the whole thing in a Try-Catch Block.
-					uc.getUser(res, id);
-				}else if (portions.length == 1){
-				uc.getAllUsers(res);	
-				}
-			} else if (req.getMethod().equals("POST")){		// POST means YOU are POSTING/adding something TO the DB.
-				uc.addUser(req, res);
-			}
-			break;
-			
-		case "Reimbursement":
-			if(req.getMethod().equals("GET")) {
-				if(portions.length == 2) {
-					int id = Integer.parseInt(portions[1]);
-					rc.getReimbursement(res, id);
-				}else if (portions.length == 1){
-				rc.getAllReimbursements(res);	
-				}
-			} else if (req.getMethod().equals("POST")){
-				rc.addReimbursement(req, res);
-			}
-			break;
-			
+		
 		// Fixed my LoginController specifically to implement the following cases because I saw them in Lev's code.
-		case "login":
-			lc.login(req, res);
-			break;
+			case "login":
+				log.info("Logging in...");
+				lc.login(req, res);
+				break;
+				
+			case "logout":
+				log.info("Logging out...");
+				lc.logout(req, res);
+				break;
 			
-		case "logout":
-			lc.logout(req, res);
-			break;
-		}
+			case "getUser":
+				lc.getUser(req, res);
+				break;
+				
+			case "Reimbursement":
+				if(req.getMethod().equals("GET")) {
+					if(portions.length == 2) {
+						int id = Integer.parseInt(portions[1]);
+						rc.getReimbursement(res, id);
+					}else if (portions.length == 1){
+					rc.getAllReimbursements(res);	
+					}
+				} else if (req.getMethod().equals("POST")){
+					rc.addReimbursement(req, res);
+				}
+				break;
+				
+			case "User":
+				if(req.getMethod().equals("GET")) {				// GET means you are getting something FROM the DB. It's like [midiparse] in Max/MSP
+					if(portions.length == 2) {
+						int id = Integer.parseInt(portions[1]);	// this is dangerous because the input might not be an int. So we nest the whole thing in a Try-Catch Block.
+						uc.getUser(res, id);
+					}else if (portions.length == 1){
+					uc.getAllUsers(res);	
+					}
+				} else if (req.getMethod().equals("POST")){		// POST means YOU are POSTING/adding something TO the DB.
+					uc.addUser(req, res);
+				}
+				break;
+			}
 		
 	} catch(NumberFormatException e) {
 		e.printStackTrace();
