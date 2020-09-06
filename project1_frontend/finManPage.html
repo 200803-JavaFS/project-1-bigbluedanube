@@ -7,24 +7,80 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-metro.css">
+
     <!--This is the Employee Page-->
     <link rel="stylesheet" href="project1.css">   
 </head>
-<body>
-    <header class="jumbotron">
-        <h1>Iron Bank of Braavos</h1>
-        <h3>Stakeholders</h3>
+<body class="w3-metro-darken">
+    <header class="jumbotron w3-metro-darken">  <!--we need both of these bc header and body are two different things-->
+        <h1 class="display-3">Iron Bank of Braavos</h1>
+        <h3>Investors</h3>
     </header>
         <main class="container">
             <div class="row">
-                <div class="col">
-                    <p>Column Text</p>
-                </div>
+                <p class="bg-black">Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                    Auctor augue mauris augue neque. 
+                    Neque ornare aenean euismod elementum nisi quis eleifend.</p>
+                <!--this takes up an entire row on an HTML page-->
             </div>
-            <div class="row">
-                <div class="col">
-                    <p>Column Text</p>
-                </div>
+            <div>
+                <table class="table table-hover table-dark" id="black-table">
+                    <thead>
+                      <tr>
+                        <th scope="col">User ID</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">User Role</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>IronBank4895</td>
+                        <td>Tycho</td>
+                        <td>Nestoris</td>
+                        <td>tycho.nestoris@ironbank.co.braavos</td>
+                        <td>Investors</td>
+
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>StannisTheMannis</td>
+                        <td>Stannis</td>
+                        <td>Baratheon</td>
+                        <td>stannisthemannis@dragonstone.gov</td>
+                        <td>Investors</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td>KingBobbyB</td>
+                        <td>Robert</td>
+                        <td>Baratheon</td>
+                        <td>kingbobbyb@westeros.gov</td>
+                        <td>Borrower</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">4</th>
+                        <td>JustKeepRowin</td>
+                        <td>Gendry</td>
+                        <td>Hill</td>
+                        <td>justkeeprowin@stormsend.gov</td>
+                        <td>Borrower</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">5</th>
+                        <td>IAmNoOne</td>
+                        <td>Arya</td>
+                        <td>Stark</td>
+                        <td>iamnoone@blackandwhite.org</td>
+                        <td>Borrower</td>
+                      </tr>
+                    </tbody>
+                  </table>
             </div>
         </main>
     
@@ -43,4 +99,5 @@
     </script>
     <script src="project1.js"></script>
 </body>
+<!-- Here's where I got the black from - https://www.w3schools.com/w3css/w3css_color_libraries.asp -->
 </html>

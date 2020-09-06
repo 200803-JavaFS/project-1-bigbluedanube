@@ -13,41 +13,45 @@
 <body>
     <header class="jumbotron">
         <h1>Iron Bank of Braavos</h1>
-        <h3>Stakeholders</h3>
+        <h3>Merchants and Borrowers</h3>
     </header>
         <main class="container">
             <div class="row">
-                <div class="col">
-                    <p>Column Text</p>
-                </div>
-                <div class="col">
-                    <p>Column Text</p>
-                </div>
-                <div class="col">
-                    <p>Column Text</p>
-                </div>
+                <p>This takes up an entire row on an HTML page.</p>
             </div>
-            <div class="row">
-                <div class="col">
-                    <p>Column Text</p>
-                </div>
-                <div class="col">
-                    <p>Column Text</p>
-                </div>
-                <div class="col">
-                    <p>Column Text</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <p>Column Text</p>
-                </div>
-                <div class="col">
-                    <p>Column Text</p>
-                </div>
-                <div class="col">
-                    <p>Column Text</p>
-                </div>
+
+            <div>
+                <form>
+                      <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Reimbursement Type
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item" href="#">LODGING</a>
+                          <a class="dropdown-item" href="#">TRAVEL</a>
+                          <a class="dropdown-item" href="#">FOOD</a>
+                          <a class="dropdown-item" href="#">OTHER</a>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="reimbursement">Reimbursement Description</label>
+                        <textarea class="form-control" id="reimbDescription" rows="3"></textarea>
+                        <small id="describe" class="form-text text-muted">Must be under 250 characters.</small>
+                      </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Email address</label>
+                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Password</label>
+                      <input type="password" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="form-group form-check">
+                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
             </div>
         </main>
     

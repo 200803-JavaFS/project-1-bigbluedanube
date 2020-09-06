@@ -21,7 +21,7 @@ async function loginFunction() {
     if(resp.status === 200){
         console.log("You made it to the response.status === 200 part");
         document.getElementById("loginSection").innerText = "You have successfully logged in!";
-        window.location.href = "employeePage.html";
+        window.location.href = "finManPage.html";
     } else {
         document.getElementById("loginSection").innerText = "Your login attempt has failed.";
         // This could possibly go to a Failure Page, which has a button that says, "take me back"
