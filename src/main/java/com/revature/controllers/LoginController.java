@@ -9,30 +9,38 @@ import javax.servlet.http.HttpSession;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.models.LoginDTO;
+import com.revature.models.User;
 import com.revature.services.LoginService;
+import com.revature.services.UserService;
 
 // req.getParameterMap().containsKey("username") returns a Boolean.
 // req.getParameter("username") returns a String/an actual Object.
 
 public class LoginController {
-
+	
+	private static LoginDTO lDTO = new LoginDTO();
+	private static UserService us = new UserService();
 	private static LoginService ls = new LoginService();
 	private static ObjectMapper om = new ObjectMapper();
+	
+	
 
 	public void login(HttpServletRequest req, HttpServletResponse res) throws IOException {
-		// This shows logging in with query parameters for example purposes only. Do not
-		// ever actually do this.
 
 		if (req.getMethod().equals("GET")) {
 
 			if (req.getParameterMap().containsKey("username") && req.getParameterMap().containsKey("password")) {
-				LoginDTO l = new LoginDTO();
-				l.username = req.getParameter("username"); // this is the "bad part" req.getParameter();
-				l.password = req.getParameter("password"); // This one, too.
+				User u = new User();
+				
+				u.setUsername(req.getParameter("username"));	// takes the input username/password and sets that to the Object.
+				u.setPassword(req.getParameter("password"));
+				
+				//now we need to check if it matches user we want to create (business logic)
+				//thus, need a service login
 
-				if (ls.login(l)) {
+				if (ls.login(u)) {
 					HttpSession ses = req.getSession();
-					ses.setAttribute("user", l);
+					ses.setAttribute("user", u);
 					ses.setAttribute("loggedin", true);
 					res.setStatus(200);
 					res.getWriter().println("Login Successful. Welcome to the Iron Bank of Braavos.");
@@ -61,11 +69,11 @@ public class LoginController {
 				
 				String body = new String(sb);
 				
-				LoginDTO l = om.readValue(body, LoginDTO.class);
+				User u = om.readValue(body, User.class);
 				
-				if (ls.login(l)) {
+				if (ls.login(u)) {
 					HttpSession ses = req.getSession();
-					ses.setAttribute("user", l);
+					ses.setAttribute("user", u);
 					ses.setAttribute("loggedin", true);
 					res.setStatus(200);
 					res.getWriter().println("Login Successful");
@@ -77,7 +85,6 @@ public class LoginController {
 					res.setStatus(401); // Status Code 401 = Unauthorized.
 					res.getWriter().println("Login failed");
 				}
-
 			}
 		}
 
@@ -85,13 +92,10 @@ public class LoginController {
 		HttpSession ses = req.getSession(false);
 
 		if (ses != null) {
-			LoginDTO l = (LoginDTO) ses.getAttribute("user"); 	// We cast this to an DTO. Can you explain why we did
-																// that? Because Attributes belong to Objects, and we
-																// have to specify the Object to which this Attribute
-																// belongs.
+			User u = (User) ses.getAttribute("user");
 			ses.invalidate();
 			res.setStatus(200); // "Ok", which is a type of Success!
-			res.getWriter().println(l.username + " has logged out successfully.");
+			res.getWriter().println(u + " has logged out successfully.");
 		} else {
 			res.setStatus(400); // "Bad Request", which is a type of Client-Side Error.
 			res.getWriter().println("Status 400: You have made a bad request. You must be logged in to logout.");

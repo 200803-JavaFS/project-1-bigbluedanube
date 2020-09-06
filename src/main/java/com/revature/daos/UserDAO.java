@@ -27,23 +27,28 @@ public class UserDAO implements IUserDAO {
 	}
 	
 	@Override
-	public User findByUsername(String username) {		// This one's new!!! Thank you, Alex!!!
+	public User findByUsername(String username) {
 		Session ses = HibernateUtil.getSession();
 		
-//		return ses.get(User.class, username); 
-		
-		User u = (User) ses.createQuery("FROM User U WHERE U.username = :userName").setParameter("userName", username).uniqueResult();
+		User u = (User) ses.createQuery("FROM User U WHERE username = " + username);
+		return u;
+	}
+
+	
+	@Override
+	public User findByBoth(String username, String password) {		// This one's new!!! Thank you, Alex!!!
+		Session ses = HibernateUtil.getSession();
+				
+		User u = (User) ses.createQuery("FROM User U WHERE username = " + username + " AND password " + password);
 		return u;
 	}
 	
-	public User findByPassword(String password) {		// based on the above, needed it to complete a UserService method...
-		Session ses = HibernateUtil.getSession();		// ...findByPassword() which was needed for LoginService method...
-		
-//		return ses.get(User.class, password);			// ... loginUser(u), which was needed to test LoginService in the JUnit tests.
-		
-		User u2 = (User) ses.createQuery("FROM User U WHERE U.password = :password").setParameter("password", password).uniqueResult();
-		return u2;
-	}
+//	public User findByPassword(String password) {		// based on the above, needed it to complete a UserService method...
+//		Session ses = HibernateUtil.getSession();		// ...findByPassword() which was needed for LoginService method...
+////		return ses.get(User.class, password);			// ... loginUser(u), which was needed to test LoginService in the JUnit tests.
+//		User u2 = (User) ses.createQuery("FROM User U WHERE");
+//		return u2;
+//	}
 
 	@Override
 	public boolean addUser(User u) {

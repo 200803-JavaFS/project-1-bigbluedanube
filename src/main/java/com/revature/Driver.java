@@ -2,7 +2,6 @@ package com.revature;
 import com.revature.daos.*;
 
 import java.security.NoSuchAlgorithmException;
-import java.sql.Timestamp;
 import java.util.List;
 import java.util.Scanner;
 
@@ -49,15 +48,15 @@ public class Driver {
 			System.out.println(r);
 		}
 		
-		LoginDTO lDTO = new LoginDTO();
-		
-		String newName = myScanner.nextLine();
-		String newPW = myScanner.nextLine();
-		
-		lDTO.setUsername(newName);
-		lDTO.setPassword(newPW);
-		
-		ls.login(lDTO);
+//		LoginDTO lDTO = new LoginDTO();
+//		
+//		String newName = myScanner.nextLine();
+//		String newPW = myScanner.nextLine();
+//		
+//		lDTO.setUsername(newName);
+//		lDTO.setPassword(newPW);
+//		
+//		ls.login(User u);
 		
 	}
 

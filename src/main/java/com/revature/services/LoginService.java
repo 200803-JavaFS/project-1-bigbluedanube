@@ -22,7 +22,7 @@ public class LoginService {
 		
 		String hashedSBPW = sb.toString();
 		
-		u = us.findByPassword(u.getUsername(), hashedSBPW);
+		u = us.findByNameAndPW(u.getUsername(), hashedSBPW);
 		log.info("The user's encrypted password is: " + hashedSBPW);
 		log.info("The user's unencrypted password is: " + u.getPassword());
 		

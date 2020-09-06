@@ -12,13 +12,15 @@ public interface IUserDAO {
 	
 	User findByUsername(String username);
 	
-	User findByPassword(String password);
-	
+	User findByBoth(String username, String password);
+
 	public boolean addUser(User u);
 	
 	public boolean updateUser(User u); 
 	
 	public boolean deleteUser(int userId);
+
+
 
 
 }
