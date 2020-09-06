@@ -283,3 +283,8 @@
 2020-09-06 16:50:45 INFO  LoginService:32 - The user's unencrypted password is: blacksmith
 2020-09-06 16:50:45 INFO  UserService:29 - Finding user JustKeepRowin and password -1619702940
 2020-09-06 16:50:45 INFO  LoginService:35 - IT'S A MATCH!
+2020-09-06 18:11:41 INFO  MasterServlet:48 - Logging in...
+2020-09-06 18:11:47 INFO  LoginService:31 - The user's encrypted password is: -1619702940
+2020-09-06 18:11:47 INFO  LoginService:32 - The user's unencrypted password is: blacksmith
+2020-09-06 18:11:47 INFO  UserService:29 - Finding user JustKeepRowin and password -1619702940
+2020-09-06 18:11:47 INFO  LoginService:35 - IT'S A MATCH!

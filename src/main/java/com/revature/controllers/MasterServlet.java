@@ -45,17 +45,24 @@ public class MasterServlet extends HttpServlet {
 		
 		// Fixed my LoginController specifically to implement the following cases because I saw them in Lev's code.
 			case "login":
-				log.info("Logging in...");
+				log.info("Logging in...");		// ALL USERS
 				lc.login(req, res);
 				break;
 				
 			case "logout":
-				log.info("Logging out...");
+				log.info("Logging out...");			// ALL USERS
 				lc.logout(req, res);
 				break;
 			
 			case "getUser":
-				lc.getUser(req, res);
+				lc.getUser(req, res);				// ALL USERS (employees can only get themselves).
+				break;
+				
+			case "viewReimbStatus":					// EMPLOYEES (they can only view THEIR reimbursements). See notes above.
+				break;
+				
+			case "approveOrDeny":
+				log.info("Resolving Reimbursement.");
 				break;
 				
 			case "Reimbursement":

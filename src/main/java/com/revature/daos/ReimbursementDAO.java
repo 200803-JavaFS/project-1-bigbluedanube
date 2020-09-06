@@ -6,6 +6,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
 import com.revature.models.Reimbursement;
+import com.revature.models.User;
 import com.revature.utils.HibernateUtil;
 
 public class ReimbursementDAO implements IReimbursementDAO {
@@ -32,6 +33,19 @@ public class ReimbursementDAO implements IReimbursementDAO {
 		
 		try {
 			ses.saveOrUpdate(r);
+			return true;
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	@Override
+	public boolean updateReimbursement(Reimbursement r) {
+		Session ses = HibernateUtil.getSession();
+		
+		try {
+			ses.merge(r);		// This is a Hibernate Session (Update) Method. It merges with the object in the cache (if it exists), then updates the DB. Safer than update().
 			return true;
 		} catch (HibernateException e) {
 			e.printStackTrace();

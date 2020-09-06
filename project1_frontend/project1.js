@@ -56,6 +56,14 @@ async function logout(){
     }
 }
 
+async function approveOrDeny(){
+    let resp2 = await fetch(url + "logout", {
+    })
+    if(resp.status === 200){
+        window.localation.href = "project1.html";
+    }
+}
+
 
 
 // ORPHANED CODE.
