@@ -13,20 +13,21 @@ public class LoginService {
 	
 	private static final Logger log = LogManager.getLogger(LoginService.class);
 	private static UserService us = new UserService();
-	private static UserDAO uDao = new UserDAO();
 
 	public boolean login(User u) {
+		String username = u.getUsername();
+		String password = u.getPassword();
+		
 		StringBuilder sb = new StringBuilder();
-		int hashedPW = u.getPassword().hashCode();
+		int hashedPW = password.hashCode();
 		sb.append(hashedPW);
 		
 		String hashedSBPW = sb.toString();
 		
-		u = us.findByNameAndPW(u.getUsername(), hashedSBPW);
 		log.info("The user's encrypted password is: " + hashedSBPW);
-		log.info("The user's unencrypted password is: " + u.getPassword());
+		log.info("The user's unencrypted password is: " + password);
 		
-		if(u.getPassword().equals(hashedSBPW)) {
+		if(us.findByNameAndPW(username, hashedSBPW)) {
 			log.info("IT'S A MATCH!");
 			return true;
 			

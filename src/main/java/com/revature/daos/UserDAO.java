@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 
 import com.revature.models.User;
 import com.revature.utils.HibernateUtil;
@@ -30,17 +31,23 @@ public class UserDAO implements IUserDAO {
 	public User findByUsername(String username) {
 		Session ses = HibernateUtil.getSession();
 		
-		User u = (User) ses.createQuery("FROM User U WHERE username = " + username);
+		User u = (User) ses.createQuery("FROM User WHERE username = " + username);
 		return u;
 	}
 
 	
 	@Override
-	public User findByBoth(String username, String password) {		// This one's new!!! Thank you, Alex!!!
+	public boolean findByBoth(String username, String password) {		// This one's new!!! Thank you, Alex and Lev!!!
 		Session ses = HibernateUtil.getSession();
-				
-		User u = (User) ses.createQuery("FROM User U WHERE username = " + username + " AND password " + password);
-		return u;
+		
+		try {
+			
+		ses.createQuery("FROM User WHERE username = " + username + " AND password = " + password, User.class);
+		return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 	
 //	public User findByPassword(String password) {		// based on the above, needed it to complete a UserService method...

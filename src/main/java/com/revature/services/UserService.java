@@ -25,7 +25,7 @@ public class UserService {
 			return uDao.findById(id);
 		}
 		
-		public User findByNameAndPW(String username, String password) {				// LizaMarie has a selectByCredentials() method.
+		public boolean findByNameAndPW(String username, String password) {				// LizaMarie has a selectByCredentials() method.
 			log.info("Finding user " + username + " and password " + password);
 			return uDao.findByBoth(username, password);
 		}

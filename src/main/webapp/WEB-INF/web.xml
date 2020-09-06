@@ -15,11 +15,7 @@
 
 	<filter>
 		<filter-name>CorsFilter</filter-name>
-		<filter-class>org.apache.catalina.filters.CorsFilter</filter-class>
-		<init-param>
-			<param-name>cors.allowed.origins</param-name>
-			<param-value>null</param-value>		<!-- this used to be "*". -->
-		</init-param>
+		<filter-class>com.revature.web.filters.CorsFilter</filter-class>
 	</filter>
 	<filter-mapping>
 		<filter-name>CorsFilter</filter-name>
@@ -35,35 +31,5 @@
 	<servlet-mapping>
 		<servlet-name>MasterServlet</servlet-name>
 		<url-pattern>/*</url-pattern>
-	</servlet-mapping>
-
-	<servlet>
-		<display-name>LoginServlet</display-name>
-		<servlet-name>LoginServlet</servlet-name>
-		<servlet-class>com.revature.controllers.LoginServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>LoginServlet</servlet-name>
-		<url-pattern>/login</url-pattern>			<!-- THIS IS SUBJECT TO CHANGE, AS ARE ALL OTHER URL PATTERNS EXCEPT FOR MASTERSERVLET. -->
-	</servlet-mapping>
-
-	<servlet>
-		<display-name>LogoutServlet</display-name>
-		<servlet-name>LogoutServlet</servlet-name>
-		<servlet-class>com.revature.controllers.LogoutServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>LogoutServlet</servlet-name>
-		<url-pattern>/logout</url-pattern>			<!-- THIS IS SUBJECT TO CHANGE, AS ARE ALL OTHER URL PATTERNS EXCEPT FOR MASTERSERVLET. -->
-	</servlet-mapping>
-
-	<servlet>
-		<display-name>SuccessServlet</display-name>
-		<servlet-name>SuccessServlet</servlet-name>
-		<servlet-class>com.revature.controllers.SuccessServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>SuccessServlet</servlet-name>
-		<url-pattern>/success</url-pattern>			<!-- THIS IS SUBJECT TO CHANGE, AS ARE ALL OTHER URL PATTERNS EXCEPT FOR MASTERSERVLET. -->
 	</servlet-mapping>
 </web-app>

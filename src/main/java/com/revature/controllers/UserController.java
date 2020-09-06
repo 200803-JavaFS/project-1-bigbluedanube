@@ -14,9 +14,6 @@ import com.revature.models.User;
 import com.revature.services.UserService;
 
 
-//EITHER PUT ALL USER FUNCTIONALITY HERE OR CREATE A SEPARATE CONTROLLER FOR THE OTHER USER TYPE.
-
-
 public class UserController {
 	
 	private static UserService us = new UserService();

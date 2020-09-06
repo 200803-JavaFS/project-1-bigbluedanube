@@ -12,7 +12,7 @@ public interface IUserDAO {
 	
 	User findByUsername(String username);
 	
-	User findByBoth(String username, String password);
+	public boolean findByBoth(String username, String password);
 
 	public boolean addUser(User u);
 	
