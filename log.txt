@@ -161,3 +161,15 @@
 2020-09-06 00:05:32 INFO  LoginService:28 - The user's unencrypted password is: facelessman
 2020-09-06 00:05:32 INFO  UserService:29 - Finding user IAmNoOne and password 960866340
 2020-09-06 00:05:32 INFO  LoginService:31 - IT'S A MATCH!
+2020-09-06 13:48:37 INFO  LoginService:27 - The user's encrypted password is: 960866340
+2020-09-06 13:48:37 INFO  LoginService:28 - The user's unencrypted password is: facelessman
+2020-09-06 13:48:37 INFO  UserService:29 - Finding user IAmNoOne and password 960866340
+2020-09-06 13:48:42 INFO  LoginService:31 - IT'S A MATCH!
+2020-09-06 14:05:51 INFO  LoginService:27 - The user's encrypted password is: 960866340
+2020-09-06 14:05:51 INFO  LoginService:28 - The user's unencrypted password is: facelessman
+2020-09-06 14:05:51 INFO  UserService:29 - Finding user IAmNoOne and password 960866340
+2020-09-06 14:05:51 INFO  LoginService:31 - IT'S A MATCH!
+2020-09-06 14:09:21 INFO  LoginService:27 - The user's encrypted password is: 960866340
+2020-09-06 14:09:21 INFO  LoginService:28 - The user's unencrypted password is: facelessman
+2020-09-06 14:09:21 INFO  UserService:29 - Finding user IAmNoOne and password 960866340
+2020-09-06 14:09:21 INFO  LoginService:31 - IT'S A MATCH!
