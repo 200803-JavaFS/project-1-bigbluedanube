@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import com.revature.models.Reimbursement;
 import com.revature.models.ReimbursementStatus;
@@ -31,9 +32,10 @@ public class ReimbursementDAO implements IReimbursementDAO {
 	@Override
 	public boolean addReimbursement(Reimbursement r) {
 		Session ses = HibernateUtil.getSession();
-		
+		Transaction tx = ses.beginTransaction();
 		try {
 			ses.saveOrUpdate(r);
+			tx.commit();
 			return true;
 		} catch (HibernateException e) {
 			e.printStackTrace();

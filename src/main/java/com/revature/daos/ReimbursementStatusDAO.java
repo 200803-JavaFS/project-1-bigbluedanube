@@ -26,7 +26,9 @@ public class ReimbursementStatusDAO implements IReimbursementStatusDAO {
 		List<Reimbursement> list = ses.createQuery("SELECT * FROM Reimbursement r JOIN ReimbursementStatus rs ON r.reimbStatusFk = rs.reimbStatusId WHERE rs.reimbStatus = '" + reimbStatus + "'").list();
 		return list;
 	}
+
 	
+// Orphaned Code...
 //	@Override
 //	public boolean findAllDenied(String reimbStatus) {
 //		Session ses = HibernateUtil.getSession();

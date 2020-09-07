@@ -313,3 +313,48 @@
 2020-09-06 20:56:20 INFO  LoginService:32 - The user's unencrypted password is: killedbyaboar
 2020-09-06 20:56:20 INFO  UserService:29 - Finding user KingBobbyB and password -550554613
 2020-09-06 20:56:20 INFO  LoginService:35 - IT'S A MATCH!
+2020-09-07 00:13:28 INFO  MasterServlet:48 - Logging in...
+2020-09-07 00:13:34 INFO  LoginService:31 - The user's encrypted password is: 662513246
+2020-09-07 00:13:34 INFO  LoginService:32 - The user's unencrypted password is: wewillgetourdue
+2020-09-07 00:13:34 INFO  UserService:29 - Finding user IronBank4895 and password 662513246
+2020-09-07 00:13:34 INFO  LoginService:35 - IT'S A MATCH!
+2020-09-07 00:18:26 INFO  MasterServlet:48 - Logging in...
+2020-09-07 00:18:26 INFO  LoginService:31 - The user's encrypted password is: 662513246
+2020-09-07 00:18:26 INFO  LoginService:32 - The user's unencrypted password is: wewillgetourdue
+2020-09-07 00:18:26 INFO  UserService:29 - Finding user IronBank4895 and password 662513246
+2020-09-07 00:18:26 INFO  LoginService:35 - IT'S A MATCH!
+2020-09-07 00:45:04 INFO  MasterServlet:48 - Logging in...
+2020-09-07 00:45:04 INFO  LoginService:31 - The user's encrypted password is: 662513246
+2020-09-07 00:45:04 INFO  LoginService:32 - The user's unencrypted password is: wewillgetourdue
+2020-09-07 00:45:04 INFO  UserService:29 - Finding user IronBank4895 and password 662513246
+2020-09-07 00:45:04 INFO  LoginService:35 - IT'S A MATCH!
+2020-09-07 00:55:31 INFO  MasterServlet:48 - Logging in...
+2020-09-07 00:55:36 INFO  LoginService:31 - The user's encrypted password is: 662513246
+2020-09-07 00:55:36 INFO  LoginService:32 - The user's unencrypted password is: wewillgetourdue
+2020-09-07 00:55:36 INFO  UserService:29 - Finding user IronBank4895 and password 662513246
+2020-09-07 00:55:36 INFO  LoginService:35 - IT'S A MATCH!
+2020-09-07 00:56:58 INFO  MasterServlet:48 - Logging in...
+2020-09-07 00:56:58 INFO  LoginService:31 - The user's encrypted password is: 662513246
+2020-09-07 00:56:58 INFO  LoginService:32 - The user's unencrypted password is: wewillgetourdue
+2020-09-07 00:56:58 INFO  UserService:29 - Finding user IronBank4895 and password 662513246
+2020-09-07 00:56:58 INFO  LoginService:35 - IT'S A MATCH!
+2020-09-07 00:59:24 INFO  MasterServlet:48 - Logging in...
+2020-09-07 00:59:24 INFO  LoginService:31 - The user's encrypted password is: 662513246
+2020-09-07 00:59:24 INFO  LoginService:32 - The user's unencrypted password is: wewillgetourdue
+2020-09-07 00:59:24 INFO  UserService:29 - Finding user IronBank4895 and password 662513246
+2020-09-07 00:59:24 INFO  LoginService:35 - IT'S A MATCH!
+2020-09-07 01:41:19 INFO  MasterServlet:48 - Logging in...
+2020-09-07 01:41:19 INFO  LoginService:31 - The user's encrypted password is: 960866340
+2020-09-07 01:41:19 INFO  LoginService:32 - The user's unencrypted password is: facelessman
+2020-09-07 01:41:19 INFO  UserService:29 - Finding user IAmNoOne and password 960866340
+2020-09-07 01:41:19 INFO  LoginService:35 - IT'S A MATCH!
+2020-09-07 01:41:46 INFO  MasterServlet:48 - Logging in...
+2020-09-07 01:41:46 INFO  LoginService:31 - The user's encrypted password is: -550554613
+2020-09-07 01:41:46 INFO  LoginService:32 - The user's unencrypted password is: killedbyaboar
+2020-09-07 01:41:46 INFO  UserService:29 - Finding user KingBobbyB and password -550554613
+2020-09-07 01:41:46 INFO  LoginService:35 - IT'S A MATCH!
+2020-09-07 01:52:37 INFO  MasterServlet:48 - Logging in...
+2020-09-07 01:52:37 INFO  LoginService:31 - The user's encrypted password is: -1619702940
+2020-09-07 01:52:37 INFO  LoginService:32 - The user's unencrypted password is: blacksmith
+2020-09-07 01:52:37 INFO  UserService:29 - Finding user JustKeepRowin and password -1619702940
+2020-09-07 01:52:37 INFO  LoginService:35 - IT'S A MATCH!
