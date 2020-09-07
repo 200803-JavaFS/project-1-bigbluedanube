@@ -56,13 +56,26 @@ public class MasterServlet extends HttpServlet {
 			
 			case "getUser":
 				lc.getUser(req, res);					// ALL USERS (employees can only get themselves).
-				break; 
+				break;
+				
+			case "getByAuthor":
+				// TO-DO
+				break;
 				
 			case "reimbursement":
 				if(req.getMethod().equals("GET")) {
-					rc.getAllReimbursements(res);	
+					rc.getAllReimbursements(res);
 				} else if (req.getMethod().equals("POST")){
 					rc.addReimbursement(req, res);
+				}
+				break;
+				
+			case "getOne":
+				if(req.getMethod().equals("GET")) {
+					if(portions.length == 2) {
+						int id = Integer.parseInt(portions[1]);	// this is dangerous because the input might not be an int. So we nest the whole thing in a Try-Catch Block.
+						rc.getReimbursement(res, id);
+					}
 				}
 				break;
 				
@@ -72,20 +85,12 @@ public class MasterServlet extends HttpServlet {
 				break;
 				
 			case "getByStatus":
-				if(req.getMethod().equals("GET")) {			// GET means you are getting something FROM the DB. It's like [midiparse] in Max/MSP.				
+				if(req.getMethod().equals("GET")) {		// GET means you are getting something FROM the DB. It's like [midiparse] in Max/MSP.				
 					if(portions.length == 2) {
 						String reimbStatus = portions[1];
 						rc.getAllByStatus(res, reimbStatus);
 					}
 				}
-				break;
-				
-			case "getByAuthor":
-				// TO-DO
-				break;
-				
-			case "viewAllResolved":						// EMPLOYEES (they can only view THEIR reimbursements). See notes above.
-				// TO-DO
 				break;
 				
 			case "user":

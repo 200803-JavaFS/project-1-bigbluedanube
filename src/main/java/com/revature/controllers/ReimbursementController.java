@@ -44,6 +44,10 @@ public class ReimbursementController {
 		List<Reimbursement> all = rs.findAll();
 		res.setStatus(200);
 		res.getWriter().println(om.writeValueAsString(all));
+		
+		for(Reimbursement r : all) {
+			System.out.println(r);
+		}
 		// Converts the list of Reimbursements to a JSON String, and then puts that into the body.
 	}
 	

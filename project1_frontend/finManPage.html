@@ -22,25 +22,26 @@
                 <p class="bg-black">Good day, Valued Investor. Welcome to the Iron Bank.</p>
                 <!--this takes up an entire row on an HTML page-->
             </div>
-            <div>
-              <div>
-            </div>
+            <div id="table-div">
                 <table class="table table-hover table-dark" id="black-table">
                     <thead>
                       <tr>
-                        <th scope="col" id="userId">User ID</th>
-                        <th scope="col" id="username">Username</th>
-                        <th scope="col" id="firstName">First Name</th>
-                        <th scope="col" id="lastName">Last Name</th>
-                        <th scope="col" id="email">Email</th>
-                        <th scope="col" id="userRoleIdFk">User Role</th>
-                        <th scope="col" id="reimbStatus">Reimbursement Status</th>
+                        <th scope="col" id="reimbId">Reimbursement ID</th>
+                        <th scope="col" id="reimbAmount">Reimbursement Amount</th>
                         <th scope="col" id="reimbDescript">Reimbursement Description</th>
+                        <th scope="col" id="reimbSubmitted">Reimbursement Submitted</th>
+                        <th scope="col" id="reimbResolved">Reimbursement Resolved</th>
+                        <th scope="col" id="reimbAuthor">Reimbursement Author</th>
+                        <th scope="col" id="reimbResolver">Reimbursement Resolver</th>
+                        <th scope="col" id="reimbStatus">Reimbursement Status</th>
+                        <th scope="col" id="reimbTypeFk">Reimbursement Type</th>
                       </tr>
                     </thead>
                     <tbody id="ironbody">
                     </tbody>
                   </table>
+                  <button class="btn btn-primary" id="allReimbursements" onclick="allReimbursements()">View All</button>
+                  <button class="btn btn-primary" id="resolve" onclick="resolve()">Resolve</button>
             </div>
         </main>
     

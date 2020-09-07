@@ -1,7 +1,7 @@
 // Project1 endpoint
 const url = 'http://localhost:8080/project1/';
 
-document.getElementById("login").addEventListener("click", loginFunction);
+// document.getElementById("login").addEventListener("click", loginFunction);
 
 async function loginFunction() {
     let uName = document.getElementById("username").value;
@@ -38,16 +38,9 @@ async function mosesPage(){
     console.log(data);
     if(data.userRoleId.userRoleId === 4){
         window.location.href = "finManPage.html";
-        let button = document.createElement("button");
-        button.className = "btn btn-primary";
-        button.id = "allReimbursements";
-        button.innerText = "Get All Reimbursements";
-        button.onclick = allReimbursements;
-        document.getElementById("black-table").appendChild(button);
 
     } else if (data.userRoleId.userRoleId === 3) {
         window.location.href = "employeePage.html";
-        document.createElement("btn btn-primary").addEventListener("click", AddFunc);
     } else {
         window.location.href = "project1.html";
         // console.log("Okay... sooooo... that was weird. What happened?");
@@ -82,6 +75,11 @@ async function allReimbursements(){
 
     if (resp.status === 200){
         let data = await resp.json();
+
+        // let utcSeconds = reimbursement.reimbSubmitted;
+        // let d = new Date(0);
+        // d.setUTCSeconds(utcSeconds);
+
         for (let reimbursement of data){
             console.log(reimbursement);
             let row = document.createElement("tr");
@@ -92,40 +90,30 @@ async function allReimbursements(){
             cell2.innerHTML = reimbursement.reimbAmount;
             row.appendChild(cell2);
             let cell3 = document.createElement("td");
-            cell3.innerHTML = reimbursement.reimbSubmitted;
+            cell3.innerHTML = reimbursement.reimbDescription;
             row.appendChild(cell3);
             let cell4 = document.createElement("td");
-            cell4.innerHTML = reimbursement.reimbResolved;
+            cell4.innerHTML = new Date(reimbursement.reimbSubmitted);
             row.appendChild(cell4);
             let cell5 = document.createElement("td");
-            cell5.innerHTML = reimbursement.reimbDescription;
+            cell5.innerHTML = reimbursement.reimbResolved;
             row.appendChild(cell5);
             let cell6 = document.createElement("td");
-            cell6.innerHTML = reimbursement.reimbAuthor;
+            console.log(reimbursement.reimbAuthor.username);     ////////
+            cell6.innerHTML = reimbursement.reimbAuthor.username;
             row.appendChild(cell6);
             let cell7 = document.createElement("td");
-            cell7.innerHTML = reimbursement.reimbResolver;
+            console.log(reimbursement.reimbResolver);           ////////
+            cell7.innerHTML = reimbursement.reimbResolver.username;
             row.appendChild(cell7);
-
-            if (reimbursement.reimbStatusFk != null) {
-                let cell8 = document.createElement("td");
-                cell8.innerHTML = reimbursement.reimbStatusId.reimbStatusId;        // this might be wrong...
-                row.appendChild(cell8);
-            } else {
-                let cell8 = document.createElement("td");
-                row.appendChild(cell8);
-            }
-            document.getElementById("ironbody").appendChild(row);
-
-
-            if (reimbursement.reimbTypeFk != null) {
-                let cell9 = document.createElement("td");
-                cell9.innerHTML = reimbursement.reimbTypeId.reimbTypeId;            // this might be wrong...
-                row.appendChild(cell9);
-            } else {
-                let cell9 = document.createElement("td");
-                row.appendChild(cell9);
-            }
+            let cell8 = document.createElement("td");
+            console.log(reimbursement.reimbStatus);             ////////
+            cell8.innerHTML = reimbursement.reimbStatusFk.reimbStatus;
+            row.appendChild(cell8);
+            let cell9 = document.createElement("td");
+            console.log(reimbursement.reimbTypeFk);             ////////
+            cell9.innerHTML = reimbursement.reimbTypeFk.reimbType;
+            row.appendChild(cell9);
             document.getElementById("ironbody").appendChild(row);
         }
     }
@@ -174,6 +162,18 @@ async function AddFunc(){
 }
 
 async function resolve(){
+    let resp = await fetch(url + "resolve", {
+        method: 'POST',
+        body: JSON.stringify(reimbursement),
+        credentials: "include"
+    })
+
+    if(resp.status === 201){
+        document.getElementById("reimbStatusFk").value = "APPROVED";    
+    } else {
+        document.getElementById().innerText = "DENIED";
+    }
+
 }
 
 async function getByAuthor(){
