@@ -288,3 +288,28 @@
 2020-09-06 18:11:47 INFO  LoginService:32 - The user's unencrypted password is: blacksmith
 2020-09-06 18:11:47 INFO  UserService:29 - Finding user JustKeepRowin and password -1619702940
 2020-09-06 18:11:47 INFO  LoginService:35 - IT'S A MATCH!
+2020-09-06 19:57:07 INFO  MasterServlet:48 - Logging in...
+2020-09-06 19:57:13 INFO  LoginService:31 - The user's encrypted password is: -1619702940
+2020-09-06 19:57:13 INFO  LoginService:32 - The user's unencrypted password is: blacksmith
+2020-09-06 19:57:13 INFO  UserService:29 - Finding user JustKeepRowin and password -1619702940
+2020-09-06 19:57:13 INFO  LoginService:35 - IT'S A MATCH!
+2020-09-06 20:16:31 INFO  MasterServlet:48 - Logging in...
+2020-09-06 20:16:31 INFO  LoginService:31 - The user's encrypted password is: 662513246
+2020-09-06 20:16:31 INFO  LoginService:32 - The user's unencrypted password is: wewillgetourdue
+2020-09-06 20:16:31 INFO  UserService:29 - Finding user IronBank4895 and password 662513246
+2020-09-06 20:16:31 INFO  LoginService:35 - IT'S A MATCH!
+2020-09-06 20:49:47 INFO  MasterServlet:48 - Logging in...
+2020-09-06 20:49:47 INFO  LoginService:31 - The user's encrypted password is: 662513246
+2020-09-06 20:49:47 INFO  LoginService:32 - The user's unencrypted password is: wewillgetourdue
+2020-09-06 20:49:47 INFO  UserService:29 - Finding user IronBank4895 and password 662513246
+2020-09-06 20:49:47 INFO  LoginService:35 - IT'S A MATCH!
+2020-09-06 20:56:16 INFO  MasterServlet:48 - Logging in...
+2020-09-06 20:56:20 INFO  MasterServlet:48 - Logging in...
+2020-09-06 20:56:20 INFO  LoginService:31 - The user's encrypted password is: -550554613
+2020-09-06 20:56:20 INFO  LoginService:32 - The user's unencrypted password is: killedbyaboar
+2020-09-06 20:56:20 INFO  UserService:29 - Finding user KingBobbyB and password -550554613
+2020-09-06 20:56:20 INFO  LoginService:35 - IT'S A MATCH!
+2020-09-06 20:56:20 INFO  LoginService:31 - The user's encrypted password is: -550554613
+2020-09-06 20:56:20 INFO  LoginService:32 - The user's unencrypted password is: killedbyaboar
+2020-09-06 20:56:20 INFO  UserService:29 - Finding user KingBobbyB and password -550554613
+2020-09-06 20:56:20 INFO  LoginService:35 - IT'S A MATCH!

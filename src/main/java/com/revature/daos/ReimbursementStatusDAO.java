@@ -1,7 +1,10 @@
 package com.revature.daos;
 
+import java.util.List;
+
 import org.hibernate.Session;
 
+import com.revature.models.Reimbursement;
 import com.revature.models.ReimbursementStatus;
 import com.revature.utils.HibernateUtil;
 
@@ -15,44 +18,39 @@ public class ReimbursementStatusDAO implements IReimbursementStatusDAO {
 		return statusId;
 	}
 	
-	@Override
-	public boolean findAllPending(String reimbStatus) {
-		Session ses = HibernateUtil.getSession();
-		
-		if(ses.get(ReimbursementStatus.class, reimbStatus).toString().equals("PENDING")) {
-			return true;
-		} else {
-			System.out.println("No pending reimbursements at this time.");
-			return false;
-		}
-
-	}
 	
 	@Override
-	public boolean findAllApproved(String reimbStatus) {
+	public List<Reimbursement> findAllByStatus(String reimbStatus) {
 		Session ses = HibernateUtil.getSession();
 		
-		if(ses.get(ReimbursementStatus.class, reimbStatus).toString().equals("APPROVED")) {
-			return true;
-		} else {
-			System.out.println("No approved reimbursements at this time.");
-			return false;
-		}
-
+		List<Reimbursement> list = ses.createQuery("SELECT * FROM Reimbursement r JOIN ReimbursementStatus rs ON r.reimbStatusFk = rs.reimbStatusId WHERE rs.reimbStatus = '" + reimbStatus + "'").list();
+		return list;
 	}
 	
-	@Override
-	public boolean findAllDenied(String reimbStatus) {
-		Session ses = HibernateUtil.getSession();
-		
-		if(ses.get(ReimbursementStatus.class, reimbStatus).toString().equals("DENIED")) {
-			return true;
-		} else {
-			System.out.println("No denied reimbursements at this time.");
-			return false;
-		}
-
-	}
+//	@Override
+//	public boolean findAllDenied(String reimbStatus) {
+//		Session ses = HibernateUtil.getSession();
+//		
+//		if(ses.get(ReimbursementStatus.class, reimbStatus).toString().equals("DENIED")) {
+//			return true;
+//		} else {
+//			System.out.println("No denied reimbursements at this time.");
+//			return false;
+//		}
+//
+//	}
+//	
+//	@Override
+//	public boolean findAllPending(String reimbStatus) {
+//		Session ses = HibernateUtil.getSession();
+//		
+//		if(ses.get(ReimbursementStatus.class, reimbStatus).toString().equals("PENDING")) {
+//			return true;
+//		} else {
+//			System.out.println("No pending reimbursements at this time.");
+//			return false;
+//		}
+//	}
 
 
 }

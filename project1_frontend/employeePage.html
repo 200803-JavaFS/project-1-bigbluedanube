@@ -23,14 +23,42 @@
             <div>
                 <form>
                       <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownType" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           Reimbursement Type
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                          <a class="dropdown-item" href="#">LODGING</a>
-                          <a class="dropdown-item" href="#">TRAVEL</a>
-                          <a class="dropdown-item" href="#">FOOD</a>
-                          <a class="dropdown-item" href="#">OTHER</a>
+                          <a class="dropdown-item">LODGING</a>
+                          <a class="dropdown-item">TRAVEL</a>
+                          <a class="dropdown-item">FOOD</a>
+                          <a class="dropdown-item">OTHER</a>
+                        </div>
+                        <br/>
+                        <br/>
+                        <div class="form-group">
+                          <label for="userRoleSelect1">Select Your Role</label>
+                          <select class="form-control" id="userRoleSelect1">
+                            <option>Employee</option>
+                            <option>Financial Manager</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <label class="label" for="reimbAmount">Dollar Amount</label>
+                          <input type="number" placeholder="1.0" step="0.01" min="0" max="10000000">
+                        </div>
+                        <div class="form-group">
+                          <label class="label" for="userName">Username</label>
+                          <input type="text" class="form-control" id="uName">
+                        </div>
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">First and Last Name</span>
+                          </div>
+                          <input type="text" aria-label="First name" class="form-control">
+                          <input type="text" aria-label="Last name" class="form-control">
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Email Address</label>
+                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                         </div>
                       </div>
                       <div class="form-group">
@@ -38,18 +66,6 @@
                         <textarea class="form-control" id="reimbDescription" rows="3"></textarea>
                         <small id="describe" class="form-text text-muted">Must be under 250 characters.</small>
                       </div>
-                    <div class="form-group">
-                      <label for="exampleInputEmail1">Email address</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputPassword1">Password</label>
-                      <input type="password" class="form-control" id="exampleInputPassword1">
-                    </div>
-                    <div class="form-group form-check">
-                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                      <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                    </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                   </form>
             </div>

@@ -45,40 +45,50 @@ public class MasterServlet extends HttpServlet {
 		
 		// Fixed my LoginController specifically to implement the following cases because I saw them in Lev's code.
 			case "login":
-				log.info("Logging in...");		// ALL USERS
+				log.info("Logging in...");				// ALL USERS
 				lc.login(req, res);
 				break;
 				
 			case "logout":
-				log.info("Logging out...");			// ALL USERS
+				log.info("Logging out...");				// ALL USERS
 				lc.logout(req, res);
 				break;
 			
 			case "getUser":
-				lc.getUser(req, res);				// ALL USERS (employees can only get themselves).
-				break;
+				lc.getUser(req, res);					// ALL USERS (employees can only get themselves).
+				break; 
 				
-			case "viewReimbStatus":					// EMPLOYEES (they can only view THEIR reimbursements). See notes above.
-				break;
-				
-			case "approveOrDeny":
-				log.info("Resolving Reimbursement.");
-				break;
-				
-			case "Reimbursement":
+			case "reimbursement":
 				if(req.getMethod().equals("GET")) {
-					if(portions.length == 2) {
-						int id = Integer.parseInt(portions[1]);
-						rc.getReimbursement(res, id);
-					}else if (portions.length == 1){
 					rc.getAllReimbursements(res);	
-					}
 				} else if (req.getMethod().equals("POST")){
 					rc.addReimbursement(req, res);
 				}
 				break;
 				
-			case "User":
+			case "resolve":
+				log.info("Resolving Reimbursement.");	// Financial Managers can do this stuff.
+				rc.updateReimbursementStatus(req, res);
+				break;
+				
+			case "getByStatus":
+				if(req.getMethod().equals("GET")) {			// GET means you are getting something FROM the DB. It's like [midiparse] in Max/MSP.				
+					if(portions.length == 2) {
+						String reimbStatus = portions[1];
+						rc.getAllByStatus(res, reimbStatus);
+					}
+				}
+				break;
+				
+			case "getByAuthor":
+				// TO-DO
+				break;
+				
+			case "viewAllResolved":						// EMPLOYEES (they can only view THEIR reimbursements). See notes above.
+				// TO-DO
+				break;
+				
+			case "user":
 				if(req.getMethod().equals("GET")) {				// GET means you are getting something FROM the DB. It's like [midiparse] in Max/MSP
 					if(portions.length == 2) {
 						int id = Integer.parseInt(portions[1]);	// this is dangerous because the input might not be an int. So we nest the whole thing in a Try-Catch Block.

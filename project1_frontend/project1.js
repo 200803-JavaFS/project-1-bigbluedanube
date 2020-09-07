@@ -19,13 +19,11 @@ async function loginFunction() {
     });
 
     if(resp.status === 200){
-        console.log("You made it to the response.status === 200 part");
-        document.getElementById("loginSection").innerText = "You have successfully logged in!";
+        document.getElementById("loginSection").innerText = "Login success!";
         mosesPage();
     } else {
         console.log("Ya dun goofed. Check your login credentials.");
         document.getElementById("loginSection").innerText = "Your login attempt has failed.";
-        // This could possibly go to a Failure Page, which has a button that says, "take me back"
     }
 }
 
@@ -44,7 +42,7 @@ async function mosesPage(){
         window.location.href = "employeePage.html";
     } else {
         window.location.href = "project1.html";
-        console.log("Okay... sooooo... that was weird.");
+        console.log("Okay... sooooo... that was weird. What happened?");
     }
 }
 
@@ -53,17 +51,37 @@ async function logout(){
     })
     if(resp.status === 200){
         window.localation.href = "project1.html";
+    } else {
+        window.localation.href = "https://awoiaf.westeros.org/index.php/Iron_Bank_of_Braavos";
+        // Clearly, you're in need of a good decompressiopn session. How about you read our brochure?
     }
 }
 
-async function approveOrDeny(){
-    let resp2 = await fetch(url + "logout", {
+async function getByStatus(statusString){
+    let resp3 = await fetch(url + "getByStatus" + statusString, {
     })
-    if(resp.status === 200){
-        window.localation.href = "project1.html";
+    if(resp3.status === 200){
+
     }
 }
 
+
+async function allReimbursements(){
+    document.getElementById("ironbody").innerText ="";
+
+}
+
+async function resolve(){
+}
+
+async function getByAuthor(){
+}
+
+async function viewAllResolved(){
+}
+
+async function user(){
+}
 
 
 // ORPHANED CODE.
