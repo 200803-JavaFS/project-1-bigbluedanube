@@ -486,3 +486,43 @@
 2020-09-07 13:12:56 INFO  ReimbursementService:25 - Finding all reimbursements.
 2020-09-07 13:14:17 INFO  ReimbursementService:25 - Finding all reimbursements.
 2020-09-07 13:14:51 INFO  ReimbursementService:25 - Finding all reimbursements.
+2020-09-07 13:59:38 INFO  ReimbursementService:25 - Finding all reimbursements.
+2020-09-07 13:59:38 INFO  ReimbursementService:25 - Finding all reimbursements.
+2020-09-07 13:59:38 INFO  ReimbursementService:25 - Finding all reimbursements.
+2020-09-07 14:00:07 INFO  MasterServlet:48 - Logging in...
+2020-09-07 14:00:07 INFO  LoginService:31 - The user's encrypted password is: -550554613
+2020-09-07 14:00:07 INFO  LoginService:32 - The user's unencrypted password is: killedbyaboar
+2020-09-07 14:00:07 INFO  UserService:29 - Finding user KingBobbyB and password -550554613
+2020-09-07 14:00:07 INFO  LoginService:35 - IT'S A MATCH!
+2020-09-07 14:00:09 INFO  ReimbursementService:25 - Finding all reimbursements.
+2020-09-07 14:00:40 INFO  ReimbursementService:25 - Finding all reimbursements.
+2020-09-07 14:00:58 INFO  MasterServlet:48 - Logging in...
+2020-09-07 14:00:59 INFO  LoginService:31 - The user's encrypted password is: -550554613
+2020-09-07 14:00:59 INFO  LoginService:32 - The user's unencrypted password is: killedbyaboar
+2020-09-07 14:00:59 INFO  UserService:29 - Finding user KingBobbyB and password -550554613
+2020-09-07 14:00:59 INFO  LoginService:35 - IT'S A MATCH!
+2020-09-07 14:01:02 INFO  ReimbursementService:25 - Finding all reimbursements.
+2020-09-07 14:20:39 INFO  ReimbursementService:25 - Finding all reimbursements.
+2020-09-07 14:20:59 INFO  MasterServlet:48 - Logging in...
+2020-09-07 14:20:59 INFO  LoginService:31 - The user's encrypted password is: -550554613
+2020-09-07 14:20:59 INFO  LoginService:32 - The user's unencrypted password is: killedbyaboar
+2020-09-07 14:20:59 INFO  UserService:29 - Finding user KingBobbyB and password -550554613
+2020-09-07 14:20:59 INFO  LoginService:35 - IT'S A MATCH!
+2020-09-07 14:22:32 INFO  ReimbursementService:25 - Finding all reimbursements.
+2020-09-07 14:35:14 INFO  ReimbursementService:25 - Finding all reimbursements.
+2020-09-07 14:35:18 INFO  ReimbursementService:25 - Finding all reimbursements.
+2020-09-07 14:35:44 INFO  ReimbursementService:25 - Finding all reimbursements.
+2020-09-07 14:36:07 INFO  ReimbursementService:25 - Finding all reimbursements.
+2020-09-07 14:36:51 INFO  ReimbursementService:25 - Finding all reimbursements.
+2020-09-07 14:37:44 INFO  ReimbursementService:25 - Finding all reimbursements.
+2020-09-07 14:38:50 INFO  ReimbursementService:25 - Finding all reimbursements.
+2020-09-07 14:41:27 INFO  ReimbursementService:25 - Finding all reimbursements.
+2020-09-07 14:42:36 INFO  ReimbursementService:25 - Finding all reimbursements.
+2020-09-07 14:42:49 INFO  ReimbursementService:25 - Finding all reimbursements.
+2020-09-07 14:43:05 INFO  ReimbursementService:25 - Finding all reimbursements.
+2020-09-07 14:45:45 INFO  ReimbursementService:25 - Finding all reimbursements.
+2020-09-07 14:46:28 INFO  ReimbursementService:25 - Finding all reimbursements.
+2020-09-07 14:49:30 INFO  ReimbursementService:25 - Finding all reimbursements.
+2020-09-07 14:50:15 INFO  ReimbursementService:25 - Finding all reimbursements.
+2020-09-07 14:50:36 INFO  ReimbursementService:25 - Finding all reimbursements.
+2020-09-07 14:51:17 INFO  ReimbursementService:25 - Finding all reimbursements.

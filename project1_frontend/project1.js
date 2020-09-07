@@ -58,13 +58,6 @@ async function logout(){
     }
 }
 
-async function getByStatus(statusString){
-    let resp = await fetch(url + "getByStatus" + statusString, {
-    })
-    if(resp.status === 200){
-    }
-}
-
 
 async function allReimbursements(){
     document.getElementById("ironbody").innerText ="";
@@ -76,15 +69,14 @@ async function allReimbursements(){
     if (resp.status === 200){
         let data = await resp.json();
 
-        // let utcSeconds = reimbursement.reimbSubmitted;
-        // let d = new Date(0);
-        // d.setUTCSeconds(utcSeconds);
-
         for (let reimbursement of data){
             console.log(reimbursement);
             let row = document.createElement("tr");
             let cell = document.createElement("td");
-            cell.innerHTML = reimbursement.reimbId;
+            a = document.createElement('a');
+            a.href =  'google.com'; // Insted of calling setAttribute 
+            a.innerHTML = reimbursement.reimbId // <a>INNER_TEXT</a>
+            cell.appendChild(a); // Append the link to the div
             row.appendChild(cell);
             let cell2 = document.createElement("td");
             cell2.innerHTML = reimbursement.reimbAmount;
@@ -121,27 +113,25 @@ async function allReimbursements(){
 
 async function AddFunc(){
 
-    // let rId = document.getElementById("reimbId").value;
+    let rId = document.getElementById("reimbId").value;
     let rAmt = document.getElementById("reimbAmount").value;
-    // let rSubmitted = document.getElementById("reimbSubmitted").value;
-    // let rResolved = document.getElementById("reimbResolved").value;
     let rDescr = document.getElementById("reimbDescription").value;
+    let rSubmitted = document.getElementById("reimbSubmitted").value;
+    let rResolved = document.getElementById("reimbResolved").value;
     let rAuthor = document.getElementById("reimbAuthor").value;
     let rResolver = document.getElementById("reimbResolver").value;
 
     let rStat = document.getElementById("reimbStatusFk").value;
     let rType = document.getElementById("reimbTypeFk").value;
 
-
     let reimbursement = {
-        // reimbId : rId,
+        reimbId : rId,
         reimbAmount : rAmt,
-        // reimbSubmitted : rSubmitted,
-        // reimbResolved : rResolved,
         reimbDescription : rDescr,
+        reimbSubmitted : rSubmitted,
+        reimbResolved : rResolved,
         reimbAuthor : rAuthor,
         reimbResolver : rResolver,
-        
         reimbStatusFk : rStat,
         reimbTypeFk : rType
     }
@@ -155,7 +145,7 @@ async function AddFunc(){
     })
 
     if(resp.status === 201){
-        allReimbursements()
+        allReimbursements();     // if this succeeds, show all Reimbursements PLUS this one.
     } else {
         document.getElementById("loginSection").innerText = "Reimbursement could not be added.";
     }
@@ -163,7 +153,7 @@ async function AddFunc(){
 
 async function resolve(){
     let resp = await fetch(url + "resolve", {
-        method: 'POST',
+        method: 'GET',
         body: JSON.stringify(reimbursement),
         credentials: "include"
     })
@@ -176,10 +166,24 @@ async function resolve(){
 
 }
 
-async function getByAuthor(){
+async function getById(){
+    let resp = await fetch(url + "getOne", {
+        method: 'GET',
+        body: JSON.stringify(reimbursement),
+        credentials: "include"
+    })
+    if(resp.status === 201){
+        document.getElementById("reimbStatusFk").value = "APPROVED";    
+    } else {
+        document.getElementById().innerText = "DENIED";
+    }
 }
 
-async function viewAllResolved(){
+async function getByStatus(statusString){
+    let resp = await fetch(url + "getByStatus" + statusString, {
+    })
+    if(resp.status === 200){
+    }
 }
 
 async function user(){
