@@ -103,9 +103,9 @@ async function allReimbursements(){
             if(reimbursement.reimbResolver != null){
                 cell7.innerHTML = reimbursement.reimbResolver.username;
             } else {
-                console.log("Your Reimbursement Resolver is null.")
-                if(reimbursement.reimbStatusFk.reimbStatus != "PENDING"){
-                    cell7.innerHTML = "KingBobbyB";
+                console.log("Your Reimbursement Resolver is null.")         // This is voodoo.
+                if(reimbursement.reimbStatusFk.reimbStatus != "PENDING"){   // Nothing to see here
+                    cell7.innerHTML = "KingBobbyB";                         // Move along.
                 } else{
                     cell7.innerHTML = "NONE";
                 }
