@@ -70,20 +70,16 @@ class ServiceTest {
 	@Test
 	public void addUserTest() {
 		log.info("running addUserTest...");
-		
 	}
 	
 	@Test
 	public void addReimbursementTest() {
 		log.info("running addReimbursementTest...");
-
 	}
 	
 	
 	@AfterClass
 	public static void addUser() {
 		log.info("in @AfterClass");
-	}	
-	
-	
+	}
 }

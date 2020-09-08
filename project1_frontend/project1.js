@@ -64,6 +64,7 @@ async function logout(){
 
 async function allReimbursements(){
     document.getElementById("ironbody").innerText ="";
+    let myId = sessionStorage.getItem("userId");
     let resp = await fetch(url + "reimbursement", {     // This is the GET request--"GET all reimbursements for me."
         method : "GET",
         credentials: 'include',
@@ -77,7 +78,7 @@ async function allReimbursements(){
             let row = document.createElement("tr");
             let cell = document.createElement("td");
             a = document.createElement('a');
-            a.href = url + "/reimbursement/" + reimbursement.reimbId; // Insted of calling setAttribute 
+            a.href = url + "/reimbursement/" + reimbursement.reimbId; // Instead of calling setAttribute 
             a.innerHTML = reimbursement.reimbId // <a>INNER_TEXT</a>
             cell.appendChild(a); // Append the link to the div
             row.appendChild(cell);
@@ -103,6 +104,11 @@ async function allReimbursements(){
                 cell7.innerHTML = reimbursement.reimbResolver.username;
             } else {
                 console.log("Your Reimbursement Resolver is null.")
+                if(reimbursement.reimbStatusFk.reimbStatus != "PENDING"){
+                    cell7.innerHTML = "KingBobbyB";
+                } else{
+                    cell7.innerHTML = "NONE";
+                }
             }
             row.appendChild(cell7);
             let cell8 = document.createElement("td");
@@ -171,14 +177,49 @@ console.log(resp);
 
 if (resp.status === 200){
     let data = await resp.json();
+    console.log(data);
     for (let reimbursement of data){
-    let row = document.createElement("tr");
-    let cell = document.createElement("td");
-    cell.innerHTML = reimbursement.reimbAmount;
-    row.appendChild(cell);
-    let cell2 = document.createElement("td");
-    cell2.innerHTML = reimbursement.reimbDescription;
-    row.appendChild(cell2);
+        console.log("Reimbursement = " + reimbursement);          // LOG
+        let row = document.createElement("tr");
+        let cell = document.createElement("td");
+        a = document.createElement('a');
+        a.href = url + "/reimbursement/" + reimbursement.reimbId; // The idea here is to go to the URL of each individual reimbursement. 
+        a.innerHTML = reimbursement.reimbId // <a>INNER_TEXT</a>
+        cell.appendChild(a); // Append the link to the div
+        row.appendChild(cell);
+        let cell2 = document.createElement("td");
+        cell2.innerHTML = reimbursement.reimbAmount;
+        row.appendChild(cell2);
+        let cell3 = document.createElement("td");
+        cell3.innerHTML = reimbursement.reimbDescription;
+        row.appendChild(cell3);
+        let cell4 = document.createElement("td");
+        cell4.innerHTML = new Date(reimbursement.reimbSubmitted);
+        row.appendChild(cell4);
+        let cell5 = document.createElement("td");
+        cell5.innerHTML = new Date(reimbursement.reimbResolved);
+        row.appendChild(cell5);
+        let cell6 = document.createElement("td");
+        console.log(reimbursement.reimbAuthor.username);        // this keeps logging as "null".
+        cell6.innerHTML = reimbursement.reimbAuthor.username;   ///////
+        row.appendChild(cell6);
+        let cell7 = document.createElement("td");
+        console.log(reimbursement.reimbResolver);
+        if(reimbursement.reimbResolver != null){
+            cell7.innerHTML = reimbursement.reimbResolver.username;
+        } else {
+            console.log("Your Reimbursement Resolver is null.")
+        }
+        row.appendChild(cell7);
+        let cell8 = document.createElement("td");
+        console.log(reimbursement.reimbStatusFk.reimbStatus);   // LOG
+        cell8.innerHTML = reimbursement.reimbStatusFk.reimbStatus;
+        row.appendChild(cell8);
+        let cell9 = document.createElement("td");
+        console.log(reimbursement.reimbTypeFk);                 // LOG
+        cell9.innerHTML = reimbursement.reimbTypeFk.reimbType;
+        row.appendChild(cell9);
+        document.getElementById("ironbody2").appendChild(row);
     }
 }}
 

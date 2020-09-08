@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> <html>
+    <head>
+    <script type="text/javascript">
+    function addRow(content,morecontent)
+    {
+             if (!document.getElementsByTagName) return;
+             tabBody=document.getElementsByTagName("tbody").item(0);
+             row=document.createElement("tr");
+             cell1 = document.createElement("td");
+             cell2 = document.createElement("td");
+             textnode1=document.createTextNode(content);
+             textnode2=document.createTextNode(morecontent);
+             cell1.appendChild(textnode1);
+             cell2.appendChild(textnode2);
+             row.appendChild(cell1);
+             row.appendChild(cell2);
+             tabBody.appendChild(row);
+    
+    
+    }
+    </script>
+    </head>
+    <body>
+    <table border='1' id='mytable'>
+    <tbody>
+    <tr><td>22</td><td>333</td></tr>
+    <tr><td>22</td><td>333</td></tr>
+    </tbody>
+    </table>
+    <button onClick='addRow("123","456");return false;'>
+    Add Row</button>
+    </body>
+    </html>

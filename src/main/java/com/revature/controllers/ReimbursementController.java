@@ -142,7 +142,7 @@ public class ReimbursementController {
 		String body = new String(s);
 		System.out.println(body);
 
-		ReimbursementDTO rDTO = om.readValue(body, ReimbursementDTO.class);		// this might need to be a ReimbursementDTO
+		ReimbursementDTO rDTO = om.readValue(body, ReimbursementDTO.class);		// Changed from Reimbursement to RDTO.
 		System.out.println(rDTO);
 		
 		int rId = rDTO.getrId();
@@ -168,7 +168,7 @@ public class ReimbursementController {
 		r.setReimbResolved(new Timestamp(System.currentTimeMillis()));		// This sets the Time of Resolution to whenever this was called.
 		
 		if(rs.updateReimbursement(r)) {
-			res.setStatus(201);			// 202 means "Accepted": think of the Cat "accepting" the pizza or the doggo "accepting" the cat as a nap companion.
+			res.setStatus(201);			// 201 means "Created": think of the newborn doggo.
 			res.getWriter().println(status);
 		} else {
 			res.setStatus(403);			// 403 means "forbidden", like the love between that adorable kitty and the big doggo who tap noses in cute defiance.
