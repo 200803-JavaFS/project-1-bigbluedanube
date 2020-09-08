@@ -65,6 +65,7 @@ public class ReimbursementController {
 		List<Reimbursement> all = rs.findByAuthor(reimbAuthor);
 		res.getWriter().println(om.writeValueAsString(all));
 		res.setStatus(200);
+		log.info("List of Reimbursements by Author... " + all);		// Trying to see what this even looks like.
 	}
 	
 	public void addReimbursement(HttpServletRequest req, HttpServletResponse res) throws IOException {

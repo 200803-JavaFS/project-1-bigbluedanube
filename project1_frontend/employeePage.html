@@ -7,12 +7,13 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-signal.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-2019.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-2018.css">
     <!--This is the Employee Page-->
     <link rel="stylesheet" href="project1.css">   
 </head>
-<body class="w3-signal-white">
-    <header class="jumbotron w3-signal-white">
+<body class="w3-2018-harbor-mist">
+    <header class="jumbotron w3-2019-bluestone">
         <h1>Iron Bank of Braavos</h1>
         <h3>Merchants and Borrowers</h3>
     </header>
@@ -21,21 +22,21 @@
                 <p>Enter your reimbursement information below.</p>
             </div>
             <div>
-                      <div class="employeeForm">
-                        <label for="reimbursements">Choose Reimbursement Type</label>
-                          <select name="newReimb" id="rTypeString">
-                            <option value="lodging">LODGING</option>
-                            <option value="travel">TRAVEL</option>
-                            <option value="food">FOOD</option>
-                            <option value="other">OTHER</option>
-                          </select>
+                <div class="employeeForm">
+                    <label for="reimbursements">Choose Reimbursement Type</label>
+                      <select name="newReimb" id="rTypeString">
+                        <option value="lodging">LODGING</option>
+                        <option value="travel">TRAVEL</option>
+                        <option value="food">FOOD</option>
+                        <option value="other">OTHER</option>
+                      </select>
                         <br/>
                         <br/>
                         <div>
                           <label for="userRoleSelect">Select Your Role</label>
-                          <select class="form-control" id="userRoleSelect1">
-                            <option value="Employee">Employee</option>
-                            <option value="Financial Manager">Financial Manager</option>
+                            <select class="form-control" id="userRoleSelect1">
+                              <option value="Employee">Employee</option>
+                              <option value="Financial Manager">Financial Manager</option>
                           </select>
                         </div>
                         <div class="form-group">
@@ -52,7 +53,7 @@
                         <small class="form-text text-muted" id="smallText">Must be under 250 characters.</small>
                       </div>
                     <button class="btn btn-success" id="newReimb" onclick="AddFunc()">Add Reimbursement</button>
-                    <button class="btn btn-primary" id="viewReimb" onclick="#">View History</button>
+                    <button class="btn btn-primary" id="viewReimb" onclick="getByUser()">View History</button>
 
                   <table class="table table-hover" id="white-table">
                     <thead>

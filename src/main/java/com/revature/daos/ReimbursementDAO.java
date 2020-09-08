@@ -83,7 +83,7 @@ public class ReimbursementDAO implements IReimbursementDAO {
 	public List<Reimbursement> findByAuthor(User reimbAuthor){
         Session ses = HibernateUtil.getSession();
         
-		List<Reimbursement> list = ses.createQuery("FROM ReimbursementStatus WHERE reimbAuthor = " + reimbAuthor, Reimbursement.class).list();
+		List<Reimbursement> list = ses.createQuery("FROM Reimbursement WHERE reimbAuthor = " + reimbAuthor, Reimbursement.class).list();
 		return list;
 	}
 }

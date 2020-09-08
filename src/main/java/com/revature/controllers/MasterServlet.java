@@ -59,7 +59,8 @@ public class MasterServlet extends HttpServlet {
 				break;
 				
 			case "getByAuthor":
-				String reimbAuthor = portions[1];
+				log.info("Getting reimbursements by author...");
+				String reimbAuthor = portions[0];
 				rc.getAllByAuthor(res, reimbAuthor);
 				break;
 				

@@ -158,10 +158,16 @@ async function AddFunc(){
 }
 
 async function getByUser(){
+    document.getElementById("ironbody2").innerText ="";
     let resp = await fetch(url + "getByAuthor", {
     method: 'GET',
     credentials: "include"
 })
+console.log(resp);
+
+// follow the path of information with sysouts and consol.logs 
+// and find out where it's breaking, 
+// it sounds like it's probably a spelling error somewhere
 
 if (resp.status === 200){
     let data = await resp.json();
