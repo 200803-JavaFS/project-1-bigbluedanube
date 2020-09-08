@@ -164,6 +164,8 @@ async function AddFunc(){
 }
 
 async function getByUser(){
+    let myId = sessionStorage.getItem("userId");
+    console.log(myId);
     document.getElementById("ironbody2").innerText ="";
     let resp = await fetch(url + "getByAuthor", {
     method: 'GET',
@@ -202,6 +204,8 @@ if (resp.status === 200){
         let cell6 = document.createElement("td");
         console.log(reimbursement.reimbAuthor.username);        // this keeps logging as "null".
         cell6.innerHTML = reimbursement.reimbAuthor.username;   ///////
+        // cell6.innerHTML = myId;
+        // console.log(myId);
         row.appendChild(cell6);
         let cell7 = document.createElement("td");
         console.log(reimbursement.reimbResolver);

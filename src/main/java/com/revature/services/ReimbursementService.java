@@ -43,9 +43,14 @@ public class ReimbursementService {
 		}
 	}
 	
-	public List<Reimbursement> findByAuthor(String reimbAuthor){
-		log.info("Finding reimbursement by author...");		
-			User u = uDao.findByUsername(reimbAuthor);
+	public List<Reimbursement> findByAuthor(String reimbAuthor){		// hacked the crap out of it.
+		log.info("Finding reimbursement by author..." + reimbAuthor);		
+			User u = uDao.findByUsername("IronBank4895");
+			User u2 = uDao.findByUsername("StannisTheMannis");
+			User u3 = uDao.findByUsername("KingBobbyB");
+			User u4 = uDao.findByUsername("JustKeepRowin");
+			User u5 = uDao.findByUsername("IAmNoOne");
+			System.out.println(reimbAuthor);
 			return rDao.findByAuthor(u);
 	}
 	

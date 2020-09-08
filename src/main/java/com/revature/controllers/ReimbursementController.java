@@ -66,6 +66,7 @@ public class ReimbursementController {
 		res.getWriter().println(om.writeValueAsString(all));
 		res.setStatus(200);
 		log.info("List of Reimbursements by Author... " + all);		// Trying to see what this even looks like.
+		System.out.println("reimbAuthor = "+ reimbAuthor);
 	}
 	
 	public void addReimbursement(HttpServletRequest req, HttpServletResponse res) throws IOException {
