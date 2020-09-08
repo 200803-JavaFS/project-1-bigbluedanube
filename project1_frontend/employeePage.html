@@ -53,15 +53,20 @@
                         <small class="form-text text-muted" id="smallText">Must be under 250 characters.</small>
                       </div>
                     <button class="btn btn-success" id="newReimb" onclick="AddFunc()">Add Reimbursement</button>
-                    <button class="btn btn-primary" id="viewReimb" onclick="getByUser()">View History</button>
+                    <!--
+                    <button class="btn btn-primary hidden" id="viewReimb" onclick="getByUser()">View History</button>
+                    -->
 
                   <table class="table table-hover" id="white-table">
                     <thead>
                       <tr>
                         <th scope="col" id="reimbId">Reimbursement ID</th>
-                        <th scope="col" id="rAmount">Reimbursement Amount</th>
-                        <th scope="col" id="reimbDescription">Reimbursement Description</th>
+                        <th scope="col" id="reimbAmount">Reimbursement Amount</th>
+                        <th scope="col" id="reimbDescript">Reimbursement Description</th>
+                        <th scope="col" id="reimbSubmitted">Reimbursement Submitted</th>
+                        <th scope="col" id="reimbResolved">Reimbursement Resolved</th>
                         <th scope="col" id="reimbAuthor">Reimbursement Author</th>
+                        <th scope="col" id="reimbResolver">Reimbursement Resolver</th>
                         <th scope="col" id="reimbStatus">Reimbursement Status</th>
                         <th scope="col" id="reimbTypeFk">Reimbursement Type</th>
                       </tr>
