@@ -10,14 +10,17 @@ import org.apache.logging.log4j.Logger;
 import com.revature.daos.IReimbursementDAO;
 import com.revature.daos.ReimbursementDAO;
 import com.revature.daos.IReimbursementStatusDAO;
+import com.revature.daos.IUserDAO;
 import com.revature.daos.ReimbursementStatusDAO;
+import com.revature.daos.UserDAO;
 import com.revature.models.Reimbursement;
 import com.revature.models.ReimbursementStatus;
+import com.revature.models.User;
 
 public class ReimbursementService {
 	
 	private static final Logger log = LogManager.getLogger(ReimbursementService.class);
-	
+	IUserDAO uDao = new UserDAO();
 	IReimbursementDAO rDao = new ReimbursementDAO();
 	IReimbursementStatusDAO rsDao = new ReimbursementStatusDAO();
 	
@@ -38,6 +41,12 @@ public class ReimbursementService {
 			log.info("No Pending, Approved, or Denied Reimbursements at this time...");
 			return null;
 		}
+	}
+	
+	public List<Reimbursement> findByAuthor(String reimbAuthor){
+		log.info("Finding reimbursement by author...");		
+			User u = uDao.findByUsername(reimbAuthor);
+			return rDao.findByAuthor(u);
 	}
 	
 	public Reimbursement findById(int id) {

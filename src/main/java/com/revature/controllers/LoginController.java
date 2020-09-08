@@ -51,13 +51,15 @@ public class LoginController {
 				
 				lDTO  = om.readValue(body, LoginDTO.class);
 				u = ls.login(lDTO);
+				System.out.println("lDTO = " + lDTO);
+				System.out.println("u = " + u);
 				
 				if (u != null) {
 					HttpSession ses = req.getSession();
 					ses.setAttribute("User", u);
 					ses.setAttribute("loggedin", true);
 					res.setStatus(200);
-					res.getWriter().println("Login Successful");
+					res.getWriter().println(u.getUserId());
 					return true;
 				} else {
 					HttpSession ses = req.getSession(false);

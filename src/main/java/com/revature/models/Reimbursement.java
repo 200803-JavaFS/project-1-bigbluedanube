@@ -14,6 +14,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 @Entity
 @Table(name="ers_reimbursement")
 public class Reimbursement implements Serializable {
@@ -42,7 +45,7 @@ public class Reimbursement implements Serializable {
 	private User reimbAuthor;
 	
 	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
-	@JoinColumn(name="reimb_resolver_fk", referencedColumnName="ers_users_id", nullable=false)
+	@JoinColumn(name="reimb_resolver_fk", referencedColumnName="ers_users_id")
 	private User reimbResolver;
 	
 	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)

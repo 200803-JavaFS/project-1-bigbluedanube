@@ -59,7 +59,8 @@ public class MasterServlet extends HttpServlet {
 				break;
 				
 			case "getByAuthor":
-				// TO-DO
+				String reimbAuthor = portions[1];
+				rc.getAllByAuthor(res, reimbAuthor);
 				break;
 				
 			case "reimbursement":
@@ -71,6 +72,7 @@ public class MasterServlet extends HttpServlet {
 				break;
 				
 			case "getOne":
+				log.info("Getting one reimbursement...");
 				if(req.getMethod().equals("GET")) {
 					if(portions.length == 2) {
 						int id = Integer.parseInt(portions[1]);	// this is dangerous because the input might not be an int. So we nest the whole thing in a Try-Catch Block.
@@ -85,6 +87,7 @@ public class MasterServlet extends HttpServlet {
 				break;
 				
 			case "getByStatus":
+				log.info("Getting reimbursements by Status...");
 				if(req.getMethod().equals("GET")) {		// GET means you are getting something FROM the DB. It's like [midiparse] in Max/MSP.				
 					if(portions.length == 2) {
 						String reimbStatus = portions[1];

@@ -12,7 +12,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.revature.daos.ReimbursementDAO;
 import com.revature.daos.ReimbursementStatusDAO;
+import com.revature.daos.UserDAO;
 import com.revature.models.Reimbursement;
 import com.revature.models.ReimbursementDTO;
 import com.revature.models.ReimbursementStatus;
@@ -23,7 +25,9 @@ import com.revature.services.UserService;
 public class ReimbursementController {
 	
 	private static UserService us = new UserService();
+	private static UserDAO uDao = new UserDAO();
 	private static ReimbursementStatusDAO rsDao = new ReimbursementStatusDAO();
+	private static ReimbursementDAO rDao = new ReimbursementDAO();
 	private static ReimbursementService rs = new ReimbursementService();
 	private static ObjectMapper om = new ObjectMapper();
 	private static final Logger log = LogManager.getLogger(LoginController.class);
@@ -57,6 +61,12 @@ public class ReimbursementController {
 		res.setStatus(200);
 	}
 	
+	public void getAllByAuthor(HttpServletResponse res, String reimbAuthor) throws IOException {
+		List<Reimbursement> all = rs.findByAuthor(reimbAuthor);
+		res.getWriter().println(om.writeValueAsString(all));
+		res.setStatus(200);
+	}
+	
 	public void addReimbursement(HttpServletRequest req, HttpServletResponse res) throws IOException {
 		
 		BufferedReader reader = req.getReader();
@@ -74,9 +84,32 @@ public class ReimbursementController {
 		String body = new String(s);
 		System.out.println(body);
 		
-		Reimbursement r = om.readValue(body, Reimbursement.class);
 		
-		System.out.println(r);
+		ReimbursementDTO rDTO = om.readValue(body, ReimbursementDTO.class);		// this might need to be a ReimbursementDTO
+		System.out.println(rDTO);
+		
+		Reimbursement r = new Reimbursement();
+		
+		
+		r.setReimbId(rDTO.rId);
+		r.setReimbAuthor(uDao.findById(rDTO.rAuthorId));
+		r.setReimbAmount(rDTO.rAmt);
+		r.setReimbDescription(rDTO.rDescription);
+		r.setReimbStatusFk(rDao.getStatusById(1));
+		
+		if(rDTO.rType.equals("lodging")) {
+			r.setReimbTypeFk(rDao.getTypeById(1));
+		} else if (rDTO.rType.equals("travel")) {
+			r.setReimbTypeFk(rDao.getTypeById(2));
+		} else if (rDTO.rType.equals("food")){
+			r.setReimbTypeFk(rDao.getTypeById(3));
+		} else if (rDTO.rType.equals("other")){
+			r.setReimbTypeFk(rDao.getTypeById(4));
+		} else {
+			log.info("Something is rotten in the ReimbursementController...");
+		}
+		
+		rDao.getStatusById(rDTO.getrId());
 		
 		if (rs.addReimbursement(r)) {
 			
@@ -92,6 +125,7 @@ public class ReimbursementController {
 	// Looked to Nancy's code for guidance here.
 	
 	public void updateReimbursementStatus(HttpServletRequest req, HttpServletResponse res) throws IOException {
+				
 		BufferedReader reader = req.getReader();
 		
 		StringBuilder s = new StringBuilder();
@@ -108,6 +142,7 @@ public class ReimbursementController {
 		System.out.println(body);
 
 		ReimbursementDTO rDTO = om.readValue(body, ReimbursementDTO.class);		// this might need to be a ReimbursementDTO
+		System.out.println(rDTO);
 		
 		int rId = rDTO.getrId();
 		
@@ -117,9 +152,9 @@ public class ReimbursementController {
 		
 		ReimbursementStatus reimbStatus = null;
 		if(status.equals("APPROVED")) {
-			reimbStatus = new ReimbursementStatus(2, "APPROVED");
+			reimbStatus = rDao.getStatusById(2);
 		} else if (status.equals("DENIED")) {
-			reimbStatus = new ReimbursementStatus(3, "DENIED");
+			reimbStatus = rDao.getStatusById(3);
 		} else {
 			log.info("Something is rotten in the ReimbursementController...");
 		}
@@ -132,8 +167,8 @@ public class ReimbursementController {
 		r.setReimbResolved(new Timestamp(System.currentTimeMillis()));		// This sets the Time of Resolution to whenever this was called.
 		
 		if(rs.updateReimbursement(r)) {
-			res.setStatus(202);			// 202 means "Accepted": think of the Cat "accepting" the pizza or the doggo "accepting" the cat as a nap companion.
-			res.getWriter().println("Reimbursement Successfully Updated.");
+			res.setStatus(201);			// 202 means "Accepted": think of the Cat "accepting" the pizza or the doggo "accepting" the cat as a nap companion.
+			res.getWriter().println(status);
 		} else {
 			res.setStatus(403);			// 403 means "forbidden", like the love between that adorable kitty and the big doggo who tap noses in cute defiance.
 		}

@@ -8,6 +8,7 @@ import org.hibernate.Transaction;
 
 import com.revature.models.Reimbursement;
 import com.revature.models.ReimbursementStatus;
+import com.revature.models.ReimbursementType;
 import com.revature.models.User;
 import com.revature.utils.HibernateUtil;
 
@@ -61,6 +62,28 @@ public class ReimbursementDAO implements IReimbursementDAO {
 		Session ses = HibernateUtil.getSession();
 		
 		List<Reimbursement> list = ses.createQuery("FROM ReimbursementStatus WHERE reimbStatusFk = " + reimbStatus.getReimbStatusId(), Reimbursement.class).list();
+		return list;
+	}
+	
+	@Override
+	public ReimbursementStatus getStatusById(int id) {
+        Session ses = HibernateUtil.getSession();
+        ReimbursementStatus s = ses.get(ReimbursementStatus.class, id);
+            return s;
+    }
+	
+	@Override
+	public ReimbursementType getTypeById(int id) {
+        Session ses = HibernateUtil.getSession();
+        ReimbursementType s = ses.get(ReimbursementType.class, id);
+            return s;
+    }
+	
+	@Override
+	public List<Reimbursement> findByAuthor(User reimbAuthor){
+        Session ses = HibernateUtil.getSession();
+        
+		List<Reimbursement> list = ses.createQuery("FROM ReimbursementStatus WHERE reimbAuthor = " + reimbAuthor, Reimbursement.class).list();
 		return list;
 	}
 }

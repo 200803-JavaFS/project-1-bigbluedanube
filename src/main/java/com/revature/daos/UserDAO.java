@@ -6,6 +6,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
+import com.revature.models.Reimbursement;
 import com.revature.models.User;
 import com.revature.utils.HibernateUtil;
 
@@ -92,4 +93,12 @@ public class UserDAO implements IUserDAO {
 			return false;
 		}	
 	}
+	
+//	public User findByAuthor(String reimbAuthor) {
+//		Session ses = HibernateUtil.getSession();
+//        
+//		List<User> list = ses.createQuery("FROM User WHERE reimbAuthor = " + reimbAuthor, User.class).list();
+//		return list;
+//	}
+
 }

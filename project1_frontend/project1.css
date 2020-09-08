@@ -10,6 +10,11 @@
   font-size: 20px;
   }
 
+.text-muted{
+  text-align: center;
+  color: darkgrey;
+}
+
 
 /*
 This is stuff I 'borrowed' from my grad assistantship, specifically the NIME 2018 website. It's GORGEOUS, and I wanna make something half as nice once day.

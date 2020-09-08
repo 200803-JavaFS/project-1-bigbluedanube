@@ -7,13 +7,13 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-metro.css">
-
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-vivid.css">
+    <!--https://www.w3schools.com/lib/w3-colors-metro.css--> <!--choose "w3-metro-darken" as your class-->
     <!--This is the Employee Page-->
     <link rel="stylesheet" href="project1.css">   
 </head>
-<body class="w3-metro-darken">
-    <header class="jumbotron w3-metro-darken">  <!--we need both of these bc header and body are two different things-->
+<body class="w3-vivid-black">
+    <header class="jumbotron w3-vivid-black">  <!--we need both of these bc header and body are two different things-->
         <h1 class="display-3">Iron Bank of Braavos</h1>
         <h3>Investors</h3>
     </header>
@@ -40,9 +40,20 @@
                     <tbody id="ironbody">
                     </tbody>
                   </table>
+                  <br>
+                  <form id="formId">
+                    <label>ID</label>
+                    <input type="number" id="input1"></input>
+                    <label>Status</label>
+                    <input type="text" id="input2"></input>
+                  </form>
+                  <br>
                   <button class="btn btn-primary" id="allReimbursements" onclick="allReimbursements()">View All</button>
                   <button class="btn btn-primary" id="resolve" onclick="resolve()">Resolve</button>
-                  <button class="btn btn-primary" id="addOne" onclick="AddFunc()">Add A Reimbursement</button>
+                  <div>
+                    <br>
+                    <small class="text-muted"><a href="project1.html">home</a></small>
+                  </div>
             </div>
         </main>
     

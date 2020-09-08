@@ -7,11 +7,12 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-signal.css">
     <!--This is the Employee Page-->
     <link rel="stylesheet" href="project1.css">   
 </head>
-<body>
-    <header class="jumbotron">
+<body class="w3-signal-white">
+    <header class="jumbotron w3-signal-white">
         <h1>Iron Bank of Braavos</h1>
         <h3>Merchants and Borrowers</h3>
     </header>
@@ -19,48 +20,59 @@
             <div class="row">
                 <p>Enter your reimbursement information below.</p>
             </div>
-
             <div>
-                <form>
-                      <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownType" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Reimbursement Type
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                          <a class="dropdown-item">LODGING</a>
-                          <a class="dropdown-item">TRAVEL</a>
-                          <a class="dropdown-item">FOOD</a>
-                          <a class="dropdown-item">OTHER</a>
-                        </div>
+                      <div class="employeeForm">
+                        <label for="reimbursements">Choose Reimbursement Type</label>
+                          <select name="newReimb" id="rTypeString">
+                            <option value="lodging">LODGING</option>
+                            <option value="travel">TRAVEL</option>
+                            <option value="food">FOOD</option>
+                            <option value="other">OTHER</option>
+                          </select>
                         <br/>
                         <br/>
-                        <div class="form-group">
-                          <label for="userRoleSelect1">Select Your Role</label>
+                        <div>
+                          <label for="userRoleSelect">Select Your Role</label>
                           <select class="form-control" id="userRoleSelect1">
-                            <option>Employee</option>
-                            <option>Financial Manager</option>
+                            <option value="Employee">Employee</option>
+                            <option value="Financial Manager">Financial Manager</option>
                           </select>
                         </div>
                         <div class="form-group">
-                          <label class="label" for="reimbAmount">Dollar Amount</label>
-                          <input type="number" placeholder="1.0" step="0.01" min="0" max="10000000" id="reimbAmount">
+                          <label class="label" for="money">Dollar Amount</label>
+                          <input type="number" placeholder="1.0" step="0.01" min="0" max="10000000" id="reimbAmount"></input>
                         </div>
-                        <div class="input-group">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text">First and Last Name</span>
-                          </div>
-                          <input type="text" aria-label="First name" class="form-control" id="reimbAuthor">
-                          <input type="text" aria-label="Last name" class="form-control" id="reimbAuthor">
-                        </div>
-
+                        <div class="form-group">
+                          <label for="usernameInput">Enter Username</label>
+                          <input type="username" class="form-control" id="usernameInput1" aria-describedby="uName"></input>
                       </div>
                       <div class="form-group">
                         <label for="reimbursement">Reimbursement Description</label>
-                        <textarea class="form-control" id="reimbDescription" rows="3"></textarea>
-                        <small class="form-text text-muted" id="reimbDescription">Must be under 250 characters.</small>
+                        <textarea class="form-control" id="descriText" rows="3"></textarea>
+                        <small class="form-text text-muted" id="smallText">Must be under 250 characters.</small>
                       </div>
-                    <button class="btn btn-primary" id="newReimb" onclick="AddFunc()">Add Reimbursement</button>
-                  </form>
+                    <button class="btn btn-success" id="newReimb" onclick="AddFunc()">Add Reimbursement</button>
+                    <button class="btn btn-primary" id="viewReimb" onclick="#">View History</button>
+
+                  <table class="table table-hover" id="white-table">
+                    <thead>
+                      <tr>
+                        <th scope="col" id="reimbId">Reimbursement ID</th>
+                        <th scope="col" id="rAmount">Reimbursement Amount</th>
+                        <th scope="col" id="reimbDescription">Reimbursement Description</th>
+                        <th scope="col" id="reimbAuthor">Reimbursement Author</th>
+                        <th scope="col" id="reimbStatus">Reimbursement Status</th>
+                        <th scope="col" id="reimbTypeFk">Reimbursement Type</th>
+                      </tr>
+                    </thead>
+                    <tbody id="ironbody2">
+                    </tbody>
+                  </table>
+                  <div>
+                    <p>
+                      <small class="text-muted"><a href="project1.html">Take me back.</a></small>
+                    </p>
+                  </div>
             </div>
         </main>
     

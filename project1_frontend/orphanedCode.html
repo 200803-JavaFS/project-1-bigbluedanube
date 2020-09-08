@@ -1,9 +1,23 @@
 <!--email input from Employee Page-->
 
+<button class="btn btn-primary" id="leave" onclick="logout()">Leave Page</button>
+
+<button class="btn btn-primary" id="addOne" onclick="AddFunc()">Add A Reimbursement</button>
+
+
 <div class="form-group">
-  <label for="exampleInputEmail1">Email Address</label>
-  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+  <label for="usernameInput">Email Address</label>
+  <input type="username" class="form-control" id="usernameInput1" aria-describedby="uName">
 </div>
+
+<!--JS auto-populate from Employee Page-->
+
+<!-- let cell3 = document.createElement("td");
+cell3.innerHTML = reimbursement.reimbAuthor.username;
+row.appendChild(cell3); -->
+
+
+
 
 <!--Dummy Data from the Financial Manager Page-->
 
@@ -63,3 +77,29 @@
     <td id="td5">PENDING</td>
     <td class="description">Bought a bowl of brown in Flea Bottom.</td>
   </tr>
+
+  <!--
+            for (let reimbursement of data){
+            let row = document.createElement("tr");
+            let cell = document.createElement("td");
+            cell.innerHTML = reimbursement.reimbId;
+            row.appendChild(cell);
+
+            let cell1 = document.createElement("td");
+            cell1.innerHTML = reimbursement.reimbAmount;
+            row.appendChild(cell1);
+
+            let cell2 = document.createElement("td");
+            cell2.innerHTML = reimbursement.reimbDescription;
+            row.appendChild(cell2);
+
+            let cell3 = document.createElement("td");
+            cell3.innerHTML = reimbursement.reimbAuthor.username;
+            row.appendChild(cell3);
+
+            let cell4 = document.createElement("td");
+            cell4.innerHTML = reimbursement.reimbTypeFk.reimbType;
+            row.appendChild(cell4);
+            reimbursement.reimbTypeFk.reimbType;
+            }
+  -->

@@ -20,6 +20,8 @@ public interface IUserDAO {
 	
 	public boolean deleteUser(int userId);
 
+//	public User findByAuthor(String reimbAuthor);
+
 
 
 
